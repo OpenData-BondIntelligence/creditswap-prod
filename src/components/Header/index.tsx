@@ -2,7 +2,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { darken } from 'polished'
 import styled from 'styled-components'
-import LogoDark from '../../assets/svg/logo_white.svg'
+import LogoDark from '../../assets/svg/openexamainlogo.png'
+// import LogoDark from '../../assets/svg/logo_white.svg'
 import Menu from '../Menu'
 import Row, { RowFixed, RowBetween } from '../Row'
 import SearchSmall from 'components/Search'
@@ -162,7 +163,7 @@ export default function Header() {
       <HeaderRow>
         <Title to={networkPrefix(activeNewtork)}>
           <UniIcon>
-            <img width={'24px'} src={LogoDark} alt="logo" />
+            <img width={'150px'} src={LogoDark} alt="logo" />
           </UniIcon>
         </Title>
         <HeaderLinks>

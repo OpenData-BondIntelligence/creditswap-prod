@@ -128,7 +128,7 @@ export default function Home() {
     <PageWrapper>
       <ThemedBackgroundGlobal backgroundColor={activeNetwork.bgColor} />
       <AutoColumn gap="16px">
-        <TYPE.main>Uniswap Overview</TYPE.main>
+        <TYPE.main> Overview</TYPE.main>
         <ResponsiveRow>
           <ChartWrapper>
             <LineChart
@@ -247,7 +247,7 @@ export default function Home() {
         <RowBetween>
           <TYPE.main>Transactions</TYPE.main>
         </RowBetween>
-        {transactions ? <TransactionsTable transactions={transactions} color={activeNetwork.primaryColor} /> : null}
+        {transactions ? <TransactionsTable transactions={transactions} color={theme.blue1} /> : null}
       </AutoColumn>
     </PageWrapper>
   )

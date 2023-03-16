@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, ReactNode } from 'react'
 import { ResponsiveContainer, XAxis, Tooltip, AreaChart, Area } from 'recharts'
 import styled from 'styled-components'
-import Card from 'components/Card'
+import Card, { BlueCard } from 'components/Card'
 import { RowBetween } from 'components/Row'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -27,7 +27,7 @@ const Wrapper = styled(Card)`
 
 export type LineChartProps = {
   data: any[]
-  color?: string | undefined
+  color: string | undefined
   height?: number | undefined
   minHeight?: number
   setValue?: Dispatch<SetStateAction<number | undefined>> // used for value on hover
@@ -88,8 +88,8 @@ const Chart = ({
           >
             <defs>
               <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor={darken(0.36, color)} stopOpacity={0.5} />
-                <stop offset="100%" stopColor={color} stopOpacity={0} />
+                <stop offset="5%" stopColor={darken(0.36, theme.blue2)} stopOpacity={0.5} />
+                <stop offset="100%" stopColor={theme.blue2} stopOpacity={0} />
               </linearGradient>
             </defs>
             <XAxis
@@ -110,7 +110,7 @@ const Chart = ({
                 if (setLabel && label !== formattedTime) setLabel(formattedTime)
               }}
             />
-            <Area dataKey="value" type="monotone" stroke={color} fill="url(#gradient)" strokeWidth={2} />
+            <Area dataKey="value" type="monotone" fill="url(#gradient)" strokeWidth={2} />
           </AreaChart>
         </ResponsiveContainer>
       )}
