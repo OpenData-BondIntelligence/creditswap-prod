@@ -166,7 +166,7 @@ export function useTokenChartData(address: string): TokenChartEntry[] | undefine
 export function useTokenPriceData(
   address: string,
   interval: number,
-  timeWindow: OpUnitType
+  timeWindow: any
 ): PriceChartEntry[] | undefined {
   const dispatch = useDispatch<AppDispatch>()
   const [activeNetwork] = useActiveNetworkVersion()
