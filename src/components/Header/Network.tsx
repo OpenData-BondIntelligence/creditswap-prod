@@ -32,7 +32,7 @@ const HeaderFrame = styled.div`
 
   @media (max-width: 1080px) {
     grid-template-columns: 1fr;
-    padding: 1rem 1rem;
+    padding: 0.5rem 1rem;
     width: calc(100%);
     position: relative;
   }
@@ -54,7 +54,11 @@ const HeaderControls = styled.div`
 `
 
 const HeaderRow = styled(RowFixed)`
-  width: 110%;
+  padding: 0rem 45rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
   @media (max-width: 1080px) {
     width: 100%;
   }
@@ -64,6 +68,7 @@ const HeaderLinks = styled(Row)`
   justify-content: center;
   @media (max-width: 1080px) {
     padding: 0.5rem;
+    justify-content: flex-end;
   } ;
 `
 
@@ -156,50 +161,17 @@ const SmallContentGrouping = styled.div`
   }
 `
 
-export default function Header() {
-  const [activeNewtork] = useActiveNetworkVersion()
+export default function Network(){
+    const [activeNewtork] = useActiveNetworkVersion()
 
-  return (
-    <HeaderFrame>
-      <HeaderRow>
-        {/* <Title to={networkPrefix(activeNewtork)}>
-          <UniIcon>
-            <img width={'150px'} src={LogoDark} alt="logo" />
-          </UniIcon>
-        </Title> */}
-        <HeaderLinks>
-          <StyledNavLink
-            id={`pool-nav-link`}
-            to={networkPrefix(activeNewtork)}
-            isActive={(match, { pathname }) => pathname === '/'}
-          >
-            Overview
-          </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={networkPrefix(activeNewtork) + 'pools'}>
-            Pools
-          </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={networkPrefix(activeNewtork) + 'tokens'}>
-            Tokens
-          </StyledNavLink>
-          <StyledNavLink id={'stake-nav-link'} to={networkPrefix(activeNewtork) + 'swap'}>
-            Swap
-          </StyledNavLink>
-        </HeaderLinks>
-      </HeaderRow>
-      {/* <HeaderControls>
-        <NetworkDropdown />
-        <SearchSmall />
-        <Menu />
-      </HeaderControls>
-      <SmallContentGrouping>
-        <AutoColumn gap="sm">
-          <RowBetween>
+    return (
+        <AutoColumn>
             <NetworkDropdown />
-            <Menu />
-          </RowBetween>
-          <SearchSmall />
         </AutoColumn>
-      </SmallContentGrouping> */}
-    </HeaderFrame>
-  )
+        // <AutoColumn gap="0">
+        //     <NetworkDropdown />
+        //     <Menu />
+        //   <SearchSmall />
+        // </AutoColumn>
+    )
 }

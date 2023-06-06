@@ -24,6 +24,10 @@ import { useActiveNetworkVersion } from 'state/application/hooks'
 import { useTransformedVolumeData } from 'hooks/chart'
 import { SmallOptionButton } from 'components/Button'
 import { VolumeWindow } from 'types'
+import Network from '../../components/Header'
+import SearchSmall from 'components/Search';
+
+import NetworkDropdown from 'components/Menu/NetworkDropdown'
 
 const ChartWrapper = styled.div`
   width: 49%;
@@ -128,7 +132,15 @@ export default function Home() {
     <PageWrapper>
       <ThemedBackgroundGlobal backgroundColor={activeNetwork.bgColor} />
       <AutoColumn gap="16px">
-        <TYPE.main> Overview</TYPE.main>
+        <DarkGreyCard>
+              <RowBetween >
+                <RowFixed width="200px">
+                <NetworkDropdown />
+                <SearchSmall />
+                </RowFixed>
+              </RowBetween>
+            </DarkGreyCard>
+        <TYPE.main>Cryptocurrency Overview</TYPE.main>
         <ResponsiveRow>
           <ChartWrapper>
             <LineChart

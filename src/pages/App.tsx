@@ -17,8 +17,14 @@ import { ExternalLink, TYPE } from 'theme'
 import { useActiveNetworkVersion, useSubgraphStatus } from 'state/application/hooks'
 import { DarkGreyCard } from 'components/Card'
 import { SUPPORTED_NETWORK_VERSIONS, EthereumNetworkInfo, OptimismNetworkInfo } from 'constants/networks'
+import SwapPage from './Swap/SwapPage'
+import background from './newbackground.jpg';
 
 const AppWrapper = styled.div`
+  background-image: url(${background});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -73,7 +79,7 @@ const WarningWrapper = styled.div`
 `
 
 const WarningBanner = styled.div`
-  background-color: ${({ theme }) => theme.bg3};
+  background: linear-gradient(45deg, #ac50ef, #7059fb 50%, #2ecff6);
   padding: 1rem;
   color: white;
   font-size: 14px;
@@ -156,6 +162,7 @@ export default function App() {
             <BodyWrapper warningActive={showNotSyncedWarning}>
               <Popups />
               <Switch>
+                <Route exact strict path="/:networdID?/swap" component={SwapPage} />
                 <Route exact strict path="/:networkID?/pools/:address" component={PoolPage} />
                 <Route exact strict path="/:networkID?/pools" component={PoolsOverview} />
                 <Route exact strict path="/:networkID?/tokens/:address" component={RedirectInvalidToken} />

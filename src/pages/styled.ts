@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import background from 'background.jpg';
 
 export const PageWrapper = styled.div`
   width: 90%;
