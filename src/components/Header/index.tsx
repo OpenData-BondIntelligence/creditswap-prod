@@ -24,7 +24,7 @@ const HeaderFrame = styled.div`
   top: 0;
   position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: 0.5rem;
   z-index: 2;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 

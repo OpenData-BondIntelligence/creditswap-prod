@@ -60,6 +60,7 @@ const Text = styled(TYPE.main)`
   color: white;
   display: block;
   line-height: 20px;
+  text-decoration: none;
 `
 
 const Button = styled(TYPE.main)`
@@ -85,7 +86,7 @@ const TopBar = () => {
         </Title>
       <RowBetween>
         <AutoRow gap="6px" width="95%" style={{ justifyContent: 'center' }}>
-        <a className="launchApp-link" href="https://openexa.to">
+        <a className="launchApp-link" href="https://openexa.ai">
           <Button style={{ justifyContent: 'center' }}>
             <Text>
               RWA Intelligence

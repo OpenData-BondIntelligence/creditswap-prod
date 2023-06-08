@@ -25,6 +25,7 @@ const AppWrapper = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
+  background-size: cover;
   display: flex;
   flex-flow: column;
   align-items: center;
