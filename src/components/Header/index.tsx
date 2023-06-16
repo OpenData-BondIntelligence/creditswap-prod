@@ -1,205 +1,170 @@
-import React from 'react'
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable @typescript-eslint/camelcase */
+
+import React, { useEffect, useState, useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { darken } from 'polished'
-import styled from 'styled-components'
-import LogoDark from '../../assets/svg/openexamainlogo.png'
-// import LogoDark from '../../assets/svg/logo_white.svg'
-import Menu from '../Menu'
-import Row, { RowFixed, RowBetween } from '../Row'
-import SearchSmall from 'components/Search'
-import NetworkDropdown from 'components/Menu/NetworkDropdown'
-import { useActiveNetworkVersion } from 'state/application/hooks'
-import { networkPrefix } from 'utils/networkPrefix'
-import { AutoColumn } from 'components/Column'
-import { SwapMath } from '@uniswap/v3-sdk'
+import { Nav, Container, Navbar, NavDropdown } from 'react-bootstrap'
+import { WindowAlt } from 'styled-icons/boxicons-regular'
 
-const HeaderFrame = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 120px;
-  align-items: center;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  top: 0;
-  position: relative;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0.5rem;
-  z-index: 2;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+function NewNavigation() {
+  const icon_data = [
+    { id: 0, href: '/', icon: 'home', text: 'Overview' },
+    { id: 1, href: '/pools', icon: 'merge_type', text: 'Pools' },
+    { id: 2, href: '/tokens', icon: 'token', text: 'Tokens' },
+    { id: 3, href: '/swap', icon: 'swap_horiz', text: 'Swap' },
+  ]
 
-  background-color: ${({ theme }) => theme.bg0};
+  const icon_width = 115
 
-  @media (max-width: 1080px) {
-    grid-template-columns: 1fr;
-    padding: 1rem 1rem;
-    width: calc(100%);
-    position: relative;
+  const initial_visible_icons: any[] = []
+  const initial_hidden_icons: any[] = []
+
+  for (let i = 0; i < icon_data.length; i++) {
+    initial_visible_icons[i] = icon_data[i]
   }
 
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    padding: 0.5rem 1rem;
-  `}
-`
+  //const icon_widths = useRef([])
+  //icon_widths.current = icon_data.map((element, i) => icon_widths.current[i] ?? createRef());
 
-const HeaderControls = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-self: flex-end;
+  /*useEffect(() => {
+    for (var i = 0; i < icon_data.length; i++) {
+      icon_data.width = icon_widths.current[i].offsetWidth 
+    }
+  })*/
 
-  @media (max-width: 1080px) {
-    display: none;
-  }
-`
+  const [dimensions, setDimensions] = useState(window.innerWidth)
+  const [vis_icons, setVisibleIcons] = useState(calcVisIcons(initial_visible_icons))
+  const [hid_icons, setHiddenIcons] = useState(calcHiddenIcons(vis_icons, initial_hidden_icons))
 
-const HeaderRow = styled(RowFixed)`
-  width: 110%;
-  @media (max-width: 1080px) {
-    width: 100%;
-  }
-`
-
-const HeaderLinks = styled(Row)`
-  justify-content: center;
-  @media (max-width: 1080px) {
-    padding: 0.5rem;
-  } ;
-`
-
-const Title = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  pointer-events: auto;
-  justify-self: flex-start;
-  margin-right: 12px;
-  :hover {
-    cursor: pointer;
-  }
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    justify-self: center;
-  `};
-`
-
-const UniIcon = styled.div`
-  transition: transform 0.3s ease;
-  :hover {
-    transform: rotate(-5deg);
-  }
-`
-
-const activeClassName = 'ACTIVE'
-
-const StyledNavLink = styled(NavLink).attrs({
-  activeClassName,
-})`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: center;
-  border-radius: 3rem;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: ${({ theme }) => theme.text3};
-  font-size: 1rem;
-  width: fit-content;
-  margin: 0 6px;
-  padding: 8px 12px;
-  font-weight: 500;
-
-  &.${activeClassName} {
-    border-radius: 12px;
-    background-color: ${({ theme }) => theme.bg2};
-    color: ${({ theme }) => theme.text1};
+  function debounceResize() {
+    setDimensions(window.innerWidth)
+    setVisibleIcons(calcVisIcons(vis_icons))
+    setHiddenIcons(calcHiddenIcons(vis_icons, hid_icons))
+    if (Math.abs(window.innerWidth - dimensions) > 200) {
+      window.location.reload()
+    }
   }
 
-  :hover,
-  :focus {
-    color: ${({ theme }) => darken(0.1, theme.text1)};
+  useEffect((): any => {
+    window.addEventListener('resize', debounceResize)
+    return (_: any) => {
+      window.removeEventListener('resize', debounceResize)
+    }
+  }, [window.innerWidth])
+
+  function calcVisIcons(v_icons: any) {
+    const icons = v_icons
+    const maxVisibleIcons = Math.floor(dimensions / icon_width - 1) >= 0 ? Math.floor(dimensions / icon_width - 1) : 0
+    // console.log("maxVisibleIcons: " + maxVisibleIcons);
+    if (maxVisibleIcons < icons.length) {
+      while (icons.length > maxVisibleIcons) {
+        icons.splice(icons.length - 1, 1)
+      }
+    } else if (maxVisibleIcons > icons.length && icons.length < icon_data.length) {
+      if (maxVisibleIcons < icon_data.length) {
+        for (let i = icons.length; i <= maxVisibleIcons; i++) {
+          icons.push(icon_data[i])
+        }
+      } else if (maxVisibleIcons >= icon_data.length) {
+        for (let i = icons.length; i < icon_data.length; i++) {
+          icons.push(icon_data[i])
+        }
+      }
+    }
+
+    return icons
   }
-`
 
-export const StyledMenuButton = styled.button`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border: none;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  height: 35px;
-  background-color: ${({ theme }) => theme.bg3};
-  margin-left: 8px;
-  padding: 0.15rem 0.5rem;
-  border-radius: 0.5rem;
+  function calcHiddenIcons(v_icons: any, hidden_icons: any) {
+    const h_icons = hidden_icons
 
-  :hover,
-  :focus {
-    cursor: pointer;
-    outline: none;
-    background-color: ${({ theme }) => theme.bg4};
+    if (v_icons.length + h_icons.length < icon_data.length) {
+      if (h_icons.length == 0 && v_icons.length < icon_data.length) {
+        if (v_icons.length != 0) {
+          const last_v = v_icons[v_icons.length - 1].id
+          for (let i = last_v; i < icon_data.length - 1; i++) {
+            h_icons.splice(i - last_v, 0, icon_data[i + 1])
+          }
+        }
+      } else if (h_icons.length > 0) {
+        if (v_icons.length != 0) {
+          const last_v = v_icons[v_icons.length - 1].id
+          const first_h = h_icons[0].id
+
+          for (let i = last_v; i < first_h - 1; i++) {
+            h_icons.splice(i - last_v, 0, icon_data[i + 1])
+          }
+        } else if (v_icons.length == 0) {
+          h_icons.splice(0, 0, icon_data[0])
+        }
+      }
+    } else if (v_icons.length + h_icons.length > icon_data.length) {
+      for (let i = 0; i < h_icons.length; i++) {
+        if (h_icons[i].id < v_icons.length) {
+          h_icons.splice(i, 1)
+        }
+      }
+    }
+
+    return h_icons
   }
-
-  svg {
-    margin-top: 2px;
-  }
-
-  > * {
-    stroke: ${({ theme }) => theme.text1};
-  }
-`
-
-const SmallContentGrouping = styled.div`
-  width: 100%;
-  display: none;
-  @media (max-width: 1080px) {
-    display: initial;
-  }
-`
-
-export default function Header() {
-  const [activeNewtork] = useActiveNetworkVersion()
 
   return (
-    <HeaderFrame>
-      <HeaderRow>
-        {/* <Title to={networkPrefix(activeNewtork)}>
-          <UniIcon>
-            <img width={'150px'} src={LogoDark} alt="logo" />
-          </UniIcon>
-        </Title> */}
-        <HeaderLinks>
-          <StyledNavLink
-            id={`pool-nav-link`}
-            to={networkPrefix(activeNewtork)}
-            isActive={(match, { pathname }) => pathname === '/'}
-          >
-            Overview
-          </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={networkPrefix(activeNewtork) + 'pools'}>
-            Pools
-          </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={networkPrefix(activeNewtork) + 'tokens'}>
-            Tokens
-          </StyledNavLink>
-          <StyledNavLink id={'stake-nav-link'} to={networkPrefix(activeNewtork) + 'swap'}>
-            Swap
-          </StyledNavLink>
-        </HeaderLinks>
-      </HeaderRow>
-      {/* <HeaderControls>
-        <NetworkDropdown />
-        <SearchSmall />
-        <Menu />
-      </HeaderControls>
-      <SmallContentGrouping>
-        <AutoColumn gap="sm">
-          <RowBetween>
-            <NetworkDropdown />
-            <Menu />
-          </RowBetween>
-          <SearchSmall />
-        </AutoColumn>
-      </SmallContentGrouping> */}
-    </HeaderFrame>
+    <div className="headNav">
+      <Navbar>
+        <Container>
+          <Navbar.Toggle aria-controls="navbar-nav" />
+
+          <Navbar.Collapse id="navbar-nav">
+            <Nav id="toolbar" className="me-auto navbar-nav flex">
+              <div style={{ width: 'fit-content', margin: 'auto' }}>
+                {vis_icons.map((data: any) => (
+                  <NavLink key={data.id} exact to={data.href} style={{ marginLeft: 5 }}>
+                    {/* {console.log("Data ID: " + data.id + " Data: " + data.icon)} */}
+                    <li className="texticon">
+                      <button type="button" className="buttonclass">
+                        <div className="icon">
+                          <span className="material-icons md-20">{data.icon}</span>
+                        </div>
+                        <div className="text">
+                          <span className="text1">{data.text}</span>
+                          <span className="text2"></span>
+                        </div>
+                      </button>
+                    </li>
+                  </NavLink>
+                ))}
+              </div>
+              {hid_icons.length > 0 && (
+                <NavDropdown
+                  title="More"
+                  id="toolbar-dropdown"
+                  className="texticon dropdonw-menu-right"
+                  style={{ marginLeft: 5 }}
+                >
+                  <div id="more-menu">
+                    {hid_icons.map((data: any) => (
+                      <NavLink key={data.id} exact to={data.href}>
+                        <li className="texticon">
+                          <div className="icon">
+                            <span className="material-icons md-20">{data.icon}</span>
+                          </div>
+                          <div className="text">
+                            <span className="text1">{data.text}</span>
+                            <span className="text2"></span>
+                          </div>
+                        </li>
+                      </NavLink>
+                    ))}
+                  </div>
+                </NavDropdown>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   )
 }
+
+export default NewNavigation

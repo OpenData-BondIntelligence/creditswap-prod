@@ -1,122 +1,81 @@
-import React from 'react'
-import styled from 'styled-components'
-import { AutoRow, RowBetween, RowFixed } from 'components/Row'
-import { ExternalLink, TYPE } from 'theme'
-import { useEthPrices } from 'hooks/useEthPrices'
-import { formatDollarAmount } from 'utils/numbers'
-import Polling from './Polling'
-import { useActiveNetworkVersion } from '../../state/application/hooks'
-import { SupportedNetwork } from '../../constants/networks'
-import LogoDark from '../../assets/svg/openexamainlogo.png'
-import { NavLink } from 'react-router-dom'
-import { networkPrefix } from 'utils/networkPrefix'
+/* eslint-disable react/no-unescaped-entities */
+import React, { useState, useContext } from 'react'
+import { Dropdown, DropdownButton } from 'react-bootstrap'
+import { Text } from 'react-native'
+import Logo from '../../assets/images/logotitle.png'
+import HeaderBarRightSideIcons from './HeaderBarRightSideIcons.jsx'
+// import "bootstrap/dist/css/bootstrap.min.css" from "react-bootstrap";
 
-const Wrapper = styled.div`
-  // width: 100%;
-  // background-color: ${({ theme }) => theme.black};
-  // padding: 10px 20px;
-  z-index: 80;
-  /* line-height: 64px; */
-  /* color: white; */
-  display: flex;
-  background-color: #202232;
-  align-items: center;
-  justify-content: space-between;
-  height: 55px;
-  width: 100%;
-`
+export const mainTextColor = {
+  color: '#9B9EA3',
+}
 
-const Item = styled(TYPE.main)`
-  font-size: 12px;
-`
+// Function to refresh page
+function refreshHome() {
+  window.location.reload()
+}
 
-const StyledLink = styled(ExternalLink)`
-  font-size: 12px;
-  color: ${({ theme }) => theme.text1};
-`
+const BREAKPOINT = 568
 
-const UniIcon = styled.div`
-  transition: transform 0.3s ease;
-  :hover {
-    transform: rotate(-5deg);
+function HeaderBar() {
+  let initialSubheaderFontSize
+  if (window.innerWidth > BREAKPOINT) {
+    initialSubheaderFontSize = 37
+  } else {
+    initialSubheaderFontSize = 31
   }
-`
-const Title = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  pointer-events: auto;
-  justify-self: flex-start;
-  margin-right: 0px;
-  :hover {
-    cursor: pointer;
-  }
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    justify-self: center;
-  `};
-`
 
-const Text = styled(TYPE.main)`
-  font-size: 17px;
-  color: white;
-  display: block;
-  line-height: 20px;
-  text-decoration: none;
-`
+  const [subheaderFontSize, setSubheaderFontSize] = useState(initialSubheaderFontSize)
 
-const Button = styled(TYPE.main)`
-  width: 260px;
-  border-radius: 10px;
-  margin-right: 10px;
-  background: linear-gradient(45deg, #ac50ef, #7059fb 50%, #2ecff6);
-  margin: 5px 2px 5px 0px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-`
-const TopBar = () => {
-  const ethPrices = useEthPrices()
-  const [activeNetwork] = useActiveNetworkVersion()
-  
+  // const { data } = this.props.location
+
   return (
-    <Wrapper>
-      <Title to={networkPrefix(activeNetwork)}>
-          <UniIcon>
-            <img width={'auto'} height={'33px'} src={LogoDark} alt="logo" />
-          </UniIcon>
-        </Title>
-      <RowBetween>
-        <AutoRow gap="6px" width="95%" style={{ justifyContent: 'center' }}>
-        <a className="launchApp-link" href="https://openexa.ai">
-          <Button style={{ justifyContent: 'center' }}>
-            <Text>
-              RWA Intelligence
-            </Text>
-          </Button>
-        </a>
+    <div className="headerbar">
+      <div className="menu_logo">
+        <div className="hamburgerMenu"></div>
+        <div className="newnew" onClick={refreshHome}>
+          {/*/ This is where the logo will go */}
+          <img className="headBar-logo" src={Logo} />
+        </div>
+      </div>
 
-        <a className="launchApp-link" href="https://openexa.io">
-          <Button style={{ justifyContent: 'center' }}>
-            <Text>
-              Manage Tokens
-            </Text>
-          </Button>
-        </a>
-        </AutoRow>
-        {/* <AutoRow gap="6px" style={{ justifyContent: 'flex-end' }}>
-          <RowFixed>
-            {activeNetwork.id === SupportedNetwork.CELO ? <Item>Celo Price:</Item> : <Item>Eth Price:</Item>}
-            <Item fontWeight="700" ml="4px">
-              {formatDollarAmount(ethPrices?.current)}
-            </Item>
-          </RowFixed>
-          <Polling /> */}
-          {/* <StyledLink href="https://v2.info.uniswap.org/#/">V2 Analytics</StyledLink>
-          <StyledLink href="https://docs.uniswap.org/">Docs</StyledLink>
-          <StyledLink href="https://app.uniswap.org/#/swap">App</StyledLink> */}
-        {/* </AutoRow> */}
-      </RowBetween>
-    </Wrapper>
+      {/* Launch AUT Swap Button */}
+      <div className="flex">
+        <div className="relative group">
+          <a className="launchApp-link" href="https://openexa.to" target="_blank" rel="noreferrer">
+            <div className="group-hover:opacity-75 transition duration-200 absolute -inset-0.5 w-11/12 bg-gradient-to-tr from-secondary-200 to-secondary-100 rounded-lg blur opacity-0"></div>
+            <button
+              style={{ borderRadius: 10 }}
+              className="z-10 hover:brightness-110 transition duration-300 py-2 px-4 w-11/12 text-base bg-gradient-to-tr from-secondary-100 via-secondary-200 to-secondary-300 text-center text-white shadow-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-indigo-200 focus:outline-none"
+            >
+              <div>Credit Swap</div>
+            </button>
+          </a>
+        </div>
+        <div className="relative group">
+          <a className="launchApp-link" href="https://openexa.io" target="_blank" rel="noreferrer">
+            <div className="group-hover:opacity-75 transition duration-200 absolute -inset-0.5 w-11/12 bg-gradient-to-tr from-secondary-200 to-secondary-100 rounded-lg blur opacity-0"></div>
+            <button
+              style={{ borderRadius: 10 }}
+              className="z-10 hover:brightness-110 transition duration-300 py-2 px-4 w-11/12 text-base bg-gradient-to-tr from-secondary-100 via-secondary-200 to-secondary-300 text-center text-white shadow-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-indigo-200 focus:outline-none"
+            >
+              <div>Manage Tokens</div>
+            </button>
+          </a>
+        </div>
+      </div>
+
+      {/* Dropdown Buttons on Right Side of Header Bar */}
+
+      {window.innerWidth < 800 ? (
+        <DropdownButton style={{ marginRight: 5 }} title="">
+          <HeaderBarRightSideIcons mainTxtColor={mainTextColor} subHeaderFS={subheaderFontSize} />
+        </DropdownButton>
+      ) : (
+        <HeaderBarRightSideIcons mainTxtColor={mainTextColor} subHeaderFS={subheaderFontSize} />
+      )}
+    </div>
   )
 }
 
-export default TopBar
+export default HeaderBar

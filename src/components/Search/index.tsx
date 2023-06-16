@@ -37,7 +37,7 @@ const Wrapper = styled(Row)`
 
   @media (max-width: 1080px) {
     width: 100%;
-  } ;
+  }
 `
 
 const StyledInput = styled.input`
