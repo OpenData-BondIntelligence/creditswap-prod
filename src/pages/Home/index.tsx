@@ -25,7 +25,8 @@ import { useTransformedVolumeData } from 'hooks/chart'
 import { SmallOptionButton } from 'components/Button'
 import { VolumeWindow } from 'types'
 import Network from '../../components/Header'
-import SearchSmall from 'components/Search';
+import SearchSmall from 'components/Search'
+import Bar from './Bar'
 
 import NetworkDropdown from 'components/Menu/NetworkDropdown'
 
@@ -132,14 +133,21 @@ export default function Home() {
     <PageWrapper>
       <ThemedBackgroundGlobal backgroundColor={activeNetwork.bgColor} />
       <AutoColumn gap="16px">
-        <DarkGreyCard>
-              <RowBetween >
-                <RowFixed width="200px">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <DarkGreyCard width="650px" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+            <RowBetween>
+              <RowFixed>
                 <NetworkDropdown />
                 <SearchSmall />
-                </RowFixed>
-              </RowBetween>
-            </DarkGreyCard>
+              </RowFixed>
+            </RowBetween>
+          </DarkGreyCard>
+        </div>
+
+        <div style={{ paddingTop: 25, paddingBottom: 25 }}>
+          <Bar></Bar>
+        </div>
+
         <TYPE.main>Cryptocurrency Overview</TYPE.main>
         <ResponsiveRow>
           <ChartWrapper>

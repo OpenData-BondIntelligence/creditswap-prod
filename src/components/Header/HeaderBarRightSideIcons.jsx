@@ -1,9 +1,8 @@
-import React, { useState, useContext, useRef } from 'react'
+import React from 'react'
 import { Dropdown } from 'react-bootstrap'
-import { Text } from 'react-native'
 import { Link } from 'react-router-dom'
 
-function HeaderBarRightSideIcons(props) {
+function HeaderBarRightSideIcons() {
   return (
     <div>
       <div className="user-info">
