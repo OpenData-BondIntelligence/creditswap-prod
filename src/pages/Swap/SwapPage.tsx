@@ -8,7 +8,7 @@ export default function SwapPage() {
   return (
     // <PageWrapper>
     <iframe
-      src="https://chloe-testappv2-wmn5n7rc5q-uc.a.run.app"
+      src="https://uniswap-widgets-demo.vercel.app/"
       width="100%"
       height="700"
       scrolling="no"
