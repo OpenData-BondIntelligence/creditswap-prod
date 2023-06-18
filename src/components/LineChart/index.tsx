@@ -144,8 +144,8 @@ const LineChart = ({
     if (chartCreated && data) {
       const series = chartCreated.addAreaSeries({
         lineColor: color,
-        topColor: darken(0.36, '#2ecff6'),
-        bottomColor: darken(0.36, '#ac50ef'),
+        topColor: darken(0.36, color),
+        bottomColor: theme.bg0,
         lineWidth: 2,
         priceLineVisible: false,
       })
