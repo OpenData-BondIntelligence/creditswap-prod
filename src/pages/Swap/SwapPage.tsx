@@ -10,7 +10,7 @@ export default function SwapPage() {
     <iframe
       src="https://uniswap-widgets-demo.vercel.app/"
       width="100%"
-      height="400px"
+      height="700px"
       scrolling="no"
       frameBorder="0"
       allow="gyroscope"

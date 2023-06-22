@@ -136,16 +136,27 @@ export default function Home() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <DarkGreyCard
             width={window.innerWidth > 900 ? '80%' : '100%'}
-            style={{ marginLeft: 'auto', marginRight: 'auto' }}
+            style={{ marginLeft: 'auto', marginRight: 'auto', maxWidth: '90vw' }}
             className="flex"
           >
             <div>
-              <RowBetween>
-                <RowFixed>
-                  <NetworkDropdown />
-                  <SearchSmall />
-                </RowFixed>
-              </RowBetween>
+              {window.innerWidth > 700 ? (
+                <RowBetween>
+                  <RowFixed>
+                    <NetworkDropdown />
+                    <SearchSmall />
+                  </RowFixed>
+                </RowBetween>
+              ) : (
+                <div>
+                  <div className="flex">
+                    <NetworkDropdown />
+                  </div>
+                  <div className="flex">
+                    <SearchSmall />
+                  </div>
+                </div>
+              )}
             </div>
           </DarkGreyCard>
         </div>

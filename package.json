@@ -149,6 +149,7 @@
     "graphql": "^15.5.0",
     "graphql-request": "^6.1.0",
     "graphql-tag": "^2.11.0",
+    "iframe-resizer-react": "^1.1.0",
     "json-rpc-engine": "^6.1.0",
     "lightweight-charts": "^3.3.0",
     "metamask": "^0.0.1-security",

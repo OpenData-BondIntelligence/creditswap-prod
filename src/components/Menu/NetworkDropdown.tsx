@@ -91,7 +91,7 @@ export default function NetworkDropdown() {
   useOnClickOutside(node, () => setShowMenu(false))
 
   return (
-    <Container ref={node} style={{ minWidth: 'fit-content' }}>
+    <Container ref={node} style={{ minWidth: 'fit-content', width: 'fit-content', maxWidth: '100%' }}>
       <Wrapper onClick={() => setShowMenu(!showMenu)}>
         <RowFixed>
           <ChevronDown size="20px" color="white" />

@@ -244,6 +244,7 @@ const Search = ({ ...rest }: React.HTMLAttributes<HTMLDivElement>) => {
             }}
             onBlur={() => setFocused(false)}
             className="searchInput"
+            style={{ width: window.innerWidth < 600 ? 'fit-content' : '100%' }}
           />
           {!focused && <TYPE.gray pl="2px">⌘/</TYPE.gray>}
         </Wrapper>
