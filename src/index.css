@@ -700,6 +700,10 @@ input[type="submit"]:hover {
   font-size: 12px;
 }
 
+.searchInput {
+  border: none !important;
+}
+
 .title-login {
   font-size: 25px;
   font-weight: bold;

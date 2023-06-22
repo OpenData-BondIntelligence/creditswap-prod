@@ -91,23 +91,23 @@ export default function NetworkDropdown() {
   useOnClickOutside(node, () => setShowMenu(false))
 
   return (
-    <Container ref={node}>
+    <Container ref={node} style={{ minWidth: 'fit-content' }}>
       <Wrapper onClick={() => setShowMenu(!showMenu)}>
         <RowFixed>
-          <LogoWrapper src={activeNetwork.imageURL} />
-          <TYPE.main fontSize="14px" color={theme.white} ml="8px" mt="-2px" mr="2px" style={{ whiteSpace: 'nowrap' }}>
+          <ChevronDown size="20px" color="white" />
+          <LogoWrapper src={activeNetwork.imageURL} style={{ marginLeft: 3 }} />
+          <TYPE.main fontSize="16px" color={theme.white} ml="8px" mt="-2px" mr="2px" style={{ whiteSpace: 'nowrap' }}>
             {activeNetwork.name}
           </TYPE.main>
           {[EthereumNetworkInfo, PolygonNetworkInfo, CeloNetworkInfo].includes(activeNetwork) ? null : (
-            <Badge bgColor={activeNetwork.primaryColor} style={{ margin: '0 4px' }}>
+            <Badge bgColor={activeNetwork.primaryColor} style={{ margin: '0 5px' }}>
               L2
             </Badge>
           )}
-          <ChevronDown size="20px" />
         </RowFixed>
       </Wrapper>
       {showMenu && (
-        <FlyOut>
+        <FlyOut style={{ zIndex: 1000 }}>
           <AutoColumn gap="16px">
             <TYPE.main color={theme.text3} fontWeight={600} fontSize="16px">
               Select network

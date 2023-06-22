@@ -30,7 +30,6 @@ function Bar() {
           background: 'linear-gradient(45deg, #ac50ef, #7059fb 50%, #2ecff6)',
           lineHeight: 19,
           boxSizing: 'border-box',
-          zIndex: 100,
           width: '100%',
           height: 19,
         }}

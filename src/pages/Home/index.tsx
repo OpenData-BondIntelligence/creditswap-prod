@@ -134,13 +134,19 @@ export default function Home() {
       <ThemedBackgroundGlobal backgroundColor={activeNetwork.bgColor} />
       <AutoColumn gap="16px">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <DarkGreyCard width="650px" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-            <RowBetween>
-              <RowFixed>
-                <NetworkDropdown />
-                <SearchSmall />
-              </RowFixed>
-            </RowBetween>
+          <DarkGreyCard
+            width={window.innerWidth > 900 ? '80%' : '100%'}
+            style={{ marginLeft: 'auto', marginRight: 'auto' }}
+            className="flex"
+          >
+            <div>
+              <RowBetween>
+                <RowFixed>
+                  <NetworkDropdown />
+                  <SearchSmall />
+                </RowFixed>
+              </RowBetween>
+            </div>
           </DarkGreyCard>
         </div>
 

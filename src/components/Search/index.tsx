@@ -243,11 +243,12 @@ const Search = ({ ...rest }: React.HTMLAttributes<HTMLDivElement>) => {
               setShowMenu(true)
             }}
             onBlur={() => setFocused(false)}
+            className="searchInput"
           />
           {!focused && <TYPE.gray pl="2px">⌘/</TYPE.gray>}
         </Wrapper>
         <Menu hide={!showMenu} ref={menuRef}>
-          <AutoColumn gap="lg">
+          <AutoColumn gap="sm">
             <AutoColumn gap="sm">
               <RowFixed>
                 <OptionButton enabled={!showWatchlist} onClick={() => setShowWatchlist(false)}>
