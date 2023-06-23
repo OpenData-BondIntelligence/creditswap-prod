@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 // @ts-nocheck
 
-import React, { useState, useEffect, useContext } from 'react'
-import { Text, StyleSheet } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { Text } from 'react-native'
 
 const currentdate = new Date()
 let min = currentdate.getMinutes()

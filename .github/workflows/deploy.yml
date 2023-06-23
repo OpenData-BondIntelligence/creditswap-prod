@@ -1,0 +1,27 @@
+name: Deploy to Google App Engine
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  job_id:
+    runs-on: node.js
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+          service_account: 'bi-model-development@appspot.gserviceaccount.com'
+
+      - id: 'deploy'
+        uses: 'google-github-actions/deploy-appengine@v1'
+
+      # Example of using the output
+      - id: 'test'
+        run: 'curl "${{ steps.deploy.outputs.url }}"'

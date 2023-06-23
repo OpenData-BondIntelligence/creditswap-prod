@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { PageWrapper } from 'pages/styled'
+import { TYPE } from 'theme'
+import Widget from './src/components/App'
 
 export default function SwapPage() {
   useEffect(() => {
@@ -18,16 +20,18 @@ export default function SwapPage() {
           textAlign: 'center',
         }}
       >
-        Swap
+        Credit Swap
       </h1>
-      <iframe
+      <TYPE.main style={{ marginBottom: 10, textAlign: 'center' }}>Swap your Tokens Here</TYPE.main>
+      <Widget />
+      {/*<iframe
         src="https://uniswap-widgets-demo.vercel.app/"
         width="100%"
         height="700px"
         scrolling="no"
         frameBorder="0"
         allow="gyroscope"
-      ></iframe>
+      ></iframe>*/}
     </PageWrapper>
   )
 }
