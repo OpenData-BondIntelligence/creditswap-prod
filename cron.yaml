@@ -1,0 +1,5 @@
+cron:
+- description: "daily summary job"
+  url: /batch
+  target: bi-model-development
+  schedule: every 24 hours
