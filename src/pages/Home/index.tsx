@@ -25,6 +25,7 @@ import { useTransformedVolumeData } from 'hooks/chart'
 import { SmallOptionButton } from 'components/Button'
 import { VolumeWindow } from 'types'
 import Network from '../../components/Header'
+import { Text, StyleSheet } from 'react-native'
 import SearchSmall from 'components/Search'
 import Bar from './Bar'
 
@@ -133,9 +134,22 @@ export default function Home() {
     <PageWrapper>
       <ThemedBackgroundGlobal backgroundColor={activeNetwork.bgColor} />
       <AutoColumn gap="16px">
+        <h1
+          style={{
+            lineHeight: '80px',
+            fontSize: 40,
+            color: 'white',
+            margin: 0,
+            padding: 0,
+            textAlign: 'center',
+          }}
+        >
+          Overview
+        </h1>
+
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <DarkGreyCard
-            width={window.innerWidth > 900 ? '80%' : '100%'}
+            width={window.innerWidth > 900 ? 'fit-content' : '100%'}
             style={{ marginLeft: 'auto', marginRight: 'auto', maxWidth: '90vw' }}
             className="flex"
           >
@@ -165,126 +179,165 @@ export default function Home() {
           <Bar></Bar>
         </div>
 
-        <TYPE.main>Cryptocurrency Overview</TYPE.main>
-        <ResponsiveRow>
-          <ChartWrapper>
-            <LineChart
-              data={formattedTvlData}
-              height={220}
-              minHeight={332}
-              color={activeNetwork.primaryColor}
-              value={liquidityHover}
-              label={leftLabel}
-              setValue={setLiquidityHover}
-              setLabel={setLeftLabel}
-              topLeft={
-                <AutoColumn gap="4px">
-                  <TYPE.mediumHeader fontSize="16px">TVL</TYPE.mediumHeader>
-                  <TYPE.largeHeader fontSize="32px">
-                    <MonoSpace>{tvlValue} </MonoSpace>
-                  </TYPE.largeHeader>
-                  <TYPE.main fontSize="12px" height="14px">
-                    {leftLabel ? <MonoSpace>{leftLabel} (UTC)</MonoSpace> : null}
-                  </TYPE.main>
-                </AutoColumn>
-              }
-            />
-          </ChartWrapper>
-          <ChartWrapper>
-            <BarChart
-              height={220}
-              minHeight={332}
-              data={
-                volumeWindow === VolumeWindow.monthly
-                  ? monthlyVolumeData
-                  : volumeWindow === VolumeWindow.weekly
-                  ? weeklyVolumeData
-                  : formattedVolumeData
-              }
-              color={theme.blue1}
-              setValue={setVolumeHover}
-              setLabel={setRightLabel}
-              value={volumeHover}
-              label={rightLabel}
-              activeWindow={volumeWindow}
-              topRight={
-                <RowFixed style={{ marginLeft: '-40px', marginTop: '8px' }}>
-                  <SmallOptionButton
-                    active={volumeWindow === VolumeWindow.daily}
-                    onClick={() => setVolumeWindow(VolumeWindow.daily)}
-                  >
-                    D
-                  </SmallOptionButton>
-                  <SmallOptionButton
-                    active={volumeWindow === VolumeWindow.weekly}
-                    style={{ marginLeft: '8px' }}
-                    onClick={() => setVolumeWindow(VolumeWindow.weekly)}
-                  >
-                    W
-                  </SmallOptionButton>
-                  <SmallOptionButton
-                    active={volumeWindow === VolumeWindow.monthly}
-                    style={{ marginLeft: '8px' }}
-                    onClick={() => setVolumeWindow(VolumeWindow.monthly)}
-                  >
-                    M
-                  </SmallOptionButton>
-                </RowFixed>
-              }
-              topLeft={
-                <AutoColumn gap="4px">
-                  <TYPE.mediumHeader fontSize="16px">Volume 24H</TYPE.mediumHeader>
-                  <TYPE.largeHeader fontSize="32px">
-                    <MonoSpace> {formatDollarAmount(volumeHover, 2)}</MonoSpace>
-                  </TYPE.largeHeader>
-                  <TYPE.main fontSize="12px" height="14px">
-                    {rightLabel ? <MonoSpace>{rightLabel} (UTC)</MonoSpace> : null}
-                  </TYPE.main>
-                </AutoColumn>
-              }
-            />
-          </ChartWrapper>
-        </ResponsiveRow>
-        <HideSmall>
-          <DarkGreyCard>
-            <RowBetween>
-              <RowFixed>
-                <RowFixed mr="20px">
-                  <TYPE.main mr="4px">Volume 24H: </TYPE.main>
-                  <TYPE.label mr="4px">{formatDollarAmount(protocolData?.volumeUSD)}</TYPE.label>
-                  <Percent value={protocolData?.volumeUSDChange} wrap={true} />
-                </RowFixed>
-                <RowFixed mr="20px">
-                  <TYPE.main mr="4px">Fees 24H: </TYPE.main>
-                  <TYPE.label mr="4px">{formatDollarAmount(protocolData?.feesUSD)}</TYPE.label>
-                  <Percent value={protocolData?.feeChange} wrap={true} />
-                </RowFixed>
-                <HideMedium>
-                  <RowFixed mr="20px">
-                    <TYPE.main mr="4px">TVL: </TYPE.main>
-                    <TYPE.label mr="4px">{formatDollarAmount(protocolData?.tvlUSD)}</TYPE.label>
-                    <TYPE.main></TYPE.main>
-                    <Percent value={protocolData?.tvlUSDChange} wrap={true} />
+        <div
+          style={{
+            borderRadius: 15,
+            backgroundColor: 'rgba(32, 34, 50, 0.5)',
+            padding: 15,
+          }}
+        >
+          <TYPE.main>Cryptocurrency Overview</TYPE.main>
+          <ResponsiveRow style={{ width: '100%', maxWidth: '100%', marginTop: 10, marginBottom: 10 }}>
+            <ChartWrapper>
+              <LineChart
+                data={formattedTvlData}
+                height={220}
+                minHeight={332}
+                color={activeNetwork.primaryColor}
+                value={liquidityHover}
+                label={leftLabel}
+                setValue={setLiquidityHover}
+                setLabel={setLeftLabel}
+                topLeft={
+                  <AutoColumn gap="4px">
+                    <TYPE.mediumHeader fontSize="16px">TVL</TYPE.mediumHeader>
+                    <TYPE.largeHeader fontSize="32px">
+                      <MonoSpace>{tvlValue} </MonoSpace>
+                    </TYPE.largeHeader>
+                    <TYPE.main fontSize="12px" height="14px">
+                      {leftLabel ? <MonoSpace>{leftLabel} (UTC)</MonoSpace> : null}
+                    </TYPE.main>
+                  </AutoColumn>
+                }
+              />
+            </ChartWrapper>
+            <ChartWrapper>
+              <BarChart
+                height={220}
+                minHeight={332}
+                data={
+                  volumeWindow === VolumeWindow.monthly
+                    ? monthlyVolumeData
+                    : volumeWindow === VolumeWindow.weekly
+                    ? weeklyVolumeData
+                    : formattedVolumeData
+                }
+                color={theme.blue1}
+                setValue={setVolumeHover}
+                setLabel={setRightLabel}
+                value={volumeHover}
+                label={rightLabel}
+                activeWindow={volumeWindow}
+                topRight={
+                  <RowFixed style={{ marginLeft: '-40px', marginTop: '8px' }}>
+                    <SmallOptionButton
+                      active={volumeWindow === VolumeWindow.daily}
+                      onClick={() => setVolumeWindow(VolumeWindow.daily)}
+                    >
+                      D
+                    </SmallOptionButton>
+                    <SmallOptionButton
+                      active={volumeWindow === VolumeWindow.weekly}
+                      style={{ marginLeft: '8px' }}
+                      onClick={() => setVolumeWindow(VolumeWindow.weekly)}
+                    >
+                      W
+                    </SmallOptionButton>
+                    <SmallOptionButton
+                      active={volumeWindow === VolumeWindow.monthly}
+                      style={{ marginLeft: '8px' }}
+                      onClick={() => setVolumeWindow(VolumeWindow.monthly)}
+                    >
+                      M
+                    </SmallOptionButton>
                   </RowFixed>
-                </HideMedium>
-              </RowFixed>
-            </RowBetween>
-          </DarkGreyCard>
-        </HideSmall>
-        <RowBetween>
-          <TYPE.main>Top Tokens</TYPE.main>
-          <StyledInternalLink to="tokens">Explore</StyledInternalLink>
-        </RowBetween>
-        <TokenTable tokenDatas={formattedTokens} />
-        <RowBetween>
-          <TYPE.main>Top Pools</TYPE.main>
-          <StyledInternalLink to="pools">Explore</StyledInternalLink>
-        </RowBetween>
-        <PoolTable poolDatas={poolDatas} />
-        <RowBetween>
-          <TYPE.main>Transactions</TYPE.main>
-        </RowBetween>
-        {transactions ? <TransactionsTable transactions={transactions} color={theme.blue1} /> : null}
+                }
+                topLeft={
+                  <AutoColumn gap="4px">
+                    <TYPE.mediumHeader fontSize="16px">Volume 24H</TYPE.mediumHeader>
+                    <TYPE.largeHeader fontSize="32px">
+                      <MonoSpace> {formatDollarAmount(volumeHover, 2)}</MonoSpace>
+                    </TYPE.largeHeader>
+                    <TYPE.main fontSize="12px" height="14px">
+                      {rightLabel ? <MonoSpace>{rightLabel} (UTC)</MonoSpace> : null}
+                    </TYPE.main>
+                  </AutoColumn>
+                }
+              />
+            </ChartWrapper>
+          </ResponsiveRow>
+          <HideSmall>
+            <DarkGreyCard>
+              <RowBetween>
+                <RowFixed>
+                  <RowFixed mr="20px">
+                    <TYPE.main mr="4px">Volume 24H: </TYPE.main>
+                    <TYPE.label mr="4px">{formatDollarAmount(protocolData?.volumeUSD)}</TYPE.label>
+                    <Percent value={protocolData?.volumeUSDChange} wrap={true} />
+                  </RowFixed>
+                  <RowFixed mr="20px">
+                    <TYPE.main mr="4px">Fees 24H: </TYPE.main>
+                    <TYPE.label mr="4px">{formatDollarAmount(protocolData?.feesUSD)}</TYPE.label>
+                    <Percent value={protocolData?.feeChange} wrap={true} />
+                  </RowFixed>
+                  <HideMedium>
+                    <RowFixed mr="20px">
+                      <TYPE.main mr="4px">TVL: </TYPE.main>
+                      <TYPE.label mr="4px">{formatDollarAmount(protocolData?.tvlUSD)}</TYPE.label>
+                      <TYPE.main></TYPE.main>
+                      <Percent value={protocolData?.tvlUSDChange} wrap={true} />
+                    </RowFixed>
+                  </HideMedium>
+                </RowFixed>
+              </RowBetween>
+            </DarkGreyCard>
+          </HideSmall>
+        </div>
+
+        <div
+          style={{
+            borderRadius: 15,
+            backgroundColor: 'rgba(32, 34, 50, 0.5)',
+            padding: 15,
+          }}
+        >
+          <RowBetween style={{ marginBottom: 10 }}>
+            <TYPE.main>Top Tokens</TYPE.main>
+            <StyledInternalLink to="tokens" style={{ color: 'gray' }}>
+              Explore
+            </StyledInternalLink>
+          </RowBetween>
+          <TokenTable tokenDatas={formattedTokens} />
+        </div>
+
+        <div
+          style={{
+            borderRadius: 15,
+            backgroundColor: 'rgba(32, 34, 50, 0.5)',
+            padding: 15,
+          }}
+        >
+          <RowBetween style={{ marginBottom: 10 }}>
+            <TYPE.main>Top Pools</TYPE.main>
+            <StyledInternalLink to="pools" style={{ color: 'gray' }}>
+              Explore
+            </StyledInternalLink>
+          </RowBetween>
+          <PoolTable poolDatas={poolDatas} />
+        </div>
+
+        <div
+          style={{
+            borderRadius: 15,
+            backgroundColor: 'rgba(32, 34, 50, 0.5)',
+            padding: 15,
+          }}
+        >
+          <RowBetween style={{ marginBottom: 10 }}>
+            <TYPE.main>Transactions</TYPE.main>
+          </RowBetween>
+          {transactions ? <TransactionsTable transactions={transactions} color={theme.blue1} /> : null}
+        </div>
       </AutoColumn>
     </PageWrapper>
   )

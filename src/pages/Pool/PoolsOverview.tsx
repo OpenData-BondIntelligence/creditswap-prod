@@ -28,14 +28,34 @@ export default function PoolPage() {
   return (
     <PageWrapper>
       <AutoColumn gap="lg">
-        <TYPE.main>Your Watchlist</TYPE.main>
-        {watchlistPools.length > 0 ? (
-          <PoolTable poolDatas={watchlistPools} />
-        ) : (
-          <DarkGreyCard>
-            <TYPE.main>Saved pools will appear here</TYPE.main>
-          </DarkGreyCard>
-        )}
+        <h1
+          style={{
+            lineHeight: '80px',
+            fontSize: 40,
+            color: 'white',
+            margin: 0,
+            padding: 0,
+            textAlign: 'center',
+          }}
+        >
+          Pools
+        </h1>
+        <div
+          style={{
+            borderRadius: 15,
+            backgroundColor: 'rgba(32, 34, 50, 0.5)',
+            padding: 15,
+          }}
+        >
+          <TYPE.main style={{ marginBottom: 10 }}>Your Watchlist</TYPE.main>
+          {watchlistPools.length > 0 ? (
+            <PoolTable poolDatas={watchlistPools} />
+          ) : (
+            <DarkGreyCard>
+              <TYPE.main>Saved pools will appear here</TYPE.main>
+            </DarkGreyCard>
+          )}
+        </div>
         {/* <HideSmall>
           <DarkGreyCard style={{ paddingTop: '12px' }}>
             <AutoColumn gap="md">
@@ -44,8 +64,16 @@ export default function PoolPage() {
             </AutoColumn>
           </DarkGreyCard>
         </HideSmall> */}
-        <TYPE.main>All Pools</TYPE.main>
-        <PoolTable poolDatas={poolDatas} />
+        <div
+          style={{
+            borderRadius: 15,
+            backgroundColor: 'rgba(32, 34, 50, 0.5)',
+            padding: 15,
+          }}
+        >
+          <TYPE.main style={{ marginBottom: 10 }}>All Pools</TYPE.main>
+          <PoolTable poolDatas={poolDatas} />
+        </div>
       </AutoColumn>
     </PageWrapper>
   )

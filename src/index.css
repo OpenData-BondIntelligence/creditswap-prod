@@ -625,7 +625,7 @@ li a:hover:not(.active) {
 }
 
 .active {
-  background-color: #1f2436;
+  background-color: #1f2436 !important;
   border-radius: 10px;
   /* #9B9EA3; */
 }

@@ -18,13 +18,13 @@ import { useActiveNetworkVersion, useSubgraphStatus } from 'state/application/ho
 import { DarkGreyCard } from 'components/Card'
 import { SUPPORTED_NETWORK_VERSIONS, EthereumNetworkInfo, OptimismNetworkInfo } from 'constants/networks'
 import SwapPage from './Swap/SwapPage'
-import background from './newbackground.jpg'
+import background from './background.jpg'
 
 const AppWrapper = styled.div`
-  background-image: url(${background});
+  background: url(${background});
   background-repeat: no-repeat;
+  background-position: top center;
   background-attachment: fixed;
-  background-size: 100%;
   background-size: cover;
   display: flex;
   flex-flow: column;
@@ -46,7 +46,7 @@ const BodyWrapper = styled.div<{ warningActive?: boolean }>`
   flex-direction: column;
   width: 100%;
   padding-top: 30px;
-  margin-top: ${({ warningActive }) => (warningActive ? '140px' : '100px')};
+  margin-top: ${({ warningActive }) => (warningActive ? '100px' : '75px')};
   align-items: center;
   flex: 1;
   overflow-y: auto;

@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable @typescript-eslint/camelcase */
 
@@ -16,10 +17,10 @@ function NewNavigation() {
 
   const icon_width = 115
 
-  const initial_visible_icons: any[] = []
-  const initial_hidden_icons: any[] = []
+  const initial_visible_icons = []
+  const initial_hidden_icons = []
 
-  for (let i = 0; i < icon_data.length; i++) {
+  for (var i = 0; i < icon_data.length; i++) {
     initial_visible_icons[i] = icon_data[i]
   }
 
@@ -47,14 +48,14 @@ function NewNavigation() {
 
   useEffect((): any => {
     window.addEventListener('resize', debounceResize)
-    return (_: any) => {
+    return (_) => {
       window.removeEventListener('resize', debounceResize)
     }
   }, [window.innerWidth])
 
-  function calcVisIcons(v_icons: any) {
+  function calcVisIcons(v_icons) {
     const icons = v_icons
-    const maxVisibleIcons = Math.floor(dimensions / icon_width - 1) >= 0 ? Math.floor(dimensions / icon_width - 1) : 0
+    var maxVisibleIcons = Math.floor(dimensions / icon_width - 1) >= 0 ? Math.floor(dimensions / icon_width - 1) : 0
     // console.log("maxVisibleIcons: " + maxVisibleIcons);
     if (maxVisibleIcons < icons.length) {
       while (icons.length > maxVisibleIcons) {
@@ -62,11 +63,11 @@ function NewNavigation() {
       }
     } else if (maxVisibleIcons > icons.length && icons.length < icon_data.length) {
       if (maxVisibleIcons < icon_data.length) {
-        for (let i = icons.length; i <= maxVisibleIcons; i++) {
+        for (var i = icons.length; i <= maxVisibleIcons; i++) {
           icons.push(icon_data[i])
         }
       } else if (maxVisibleIcons >= icon_data.length) {
-        for (let i = icons.length; i < icon_data.length; i++) {
+        for (var i = icons.length; i < icon_data.length; i++) {
           icons.push(icon_data[i])
         }
       }
@@ -75,14 +76,14 @@ function NewNavigation() {
     return icons
   }
 
-  function calcHiddenIcons(v_icons: any, hidden_icons: any) {
+  function calcHiddenIcons(v_icons, hidden_icons) {
     const h_icons = hidden_icons
 
     if (v_icons.length + h_icons.length < icon_data.length) {
       if (h_icons.length == 0 && v_icons.length < icon_data.length) {
         if (v_icons.length != 0) {
           const last_v = v_icons[v_icons.length - 1].id
-          for (let i = last_v; i < icon_data.length - 1; i++) {
+          for (var i = last_v; i < icon_data.length - 1; i++) {
             h_icons.splice(i - last_v, 0, icon_data[i + 1])
           }
         }
@@ -91,7 +92,7 @@ function NewNavigation() {
           const last_v = v_icons[v_icons.length - 1].id
           const first_h = h_icons[0].id
 
-          for (let i = last_v; i < first_h - 1; i++) {
+          for (var i = last_v; i < first_h - 1; i++) {
             h_icons.splice(i - last_v, 0, icon_data[i + 1])
           }
         } else if (v_icons.length == 0) {
@@ -99,7 +100,7 @@ function NewNavigation() {
         }
       }
     } else if (v_icons.length + h_icons.length > icon_data.length) {
-      for (let i = 0; i < h_icons.length; i++) {
+      for (var i: any = 0; i < h_icons.length; i++) {
         if (h_icons[i].id < v_icons.length) {
           h_icons.splice(i, 1)
         }
@@ -110,19 +111,38 @@ function NewNavigation() {
   }
 
   return (
-    <div className="headNav">
-      <Navbar>
-        <Container>
-          <Navbar.Toggle aria-controls="navbar-nav" />
-
-          <Navbar.Collapse id="navbar-nav">
-            <Nav id="toolbar" className="me-auto navbar-nav flex">
-              <div style={{ width: 'fit-content', margin: 'auto' }}>
-                {vis_icons.map((data: any) => (
-                  <NavLink key={data.id} exact to={data.href} style={{ marginLeft: 5 }}>
-                    {/* {console.log("Data ID: " + data.id + " Data: " + data.icon)} */}
-                    <li className="texticon">
-                      <button type="button" className="buttonclass">
+    <Navbar>
+      <Container>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="navbar-nav me-auto" id="toolbar">
+            {vis_icons.map((data) => (
+              <NavLink key={data.id} exact to={data.href} style={{ marginLeft: 5 }}>
+                {/* {console.log("Data ID: " + data.id + " Data: " + data.icon)} */}
+                <li className="texticon">
+                  <button type="button" className="buttonclass">
+                    <div className="icon">
+                      <span className="material-icons md-20">{data.icon}</span>
+                    </div>
+                    <div className="text">
+                      <span className="text1">{data.text}</span>
+                      <span className="text2"></span>
+                    </div>
+                  </button>
+                </li>
+              </NavLink>
+            ))}
+            {hid_icons.length > 0 && (
+              <NavDropdown
+                title="More"
+                id="toolbar-dropdown"
+                className="texticon dropdonw-menu-right"
+                style={{ marginLeft: 5 }}
+              >
+                <div id="more-menu">
+                  {hid_icons.map((data) => (
+                    <NavLink key={data.id} exact to={data.href}>
+                      <li className="texticon">
                         <div className="icon">
                           <span className="material-icons md-20">{data.icon}</span>
                         </div>
@@ -130,40 +150,16 @@ function NewNavigation() {
                           <span className="text1">{data.text}</span>
                           <span className="text2"></span>
                         </div>
-                      </button>
-                    </li>
-                  </NavLink>
-                ))}
-              </div>
-              {hid_icons.length > 0 && (
-                <NavDropdown
-                  title="More"
-                  id="toolbar-dropdown"
-                  className="texticon dropdonw-menu-right"
-                  style={{ marginLeft: 5 }}
-                >
-                  <div id="more-menu">
-                    {hid_icons.map((data: any) => (
-                      <NavLink key={data.id} exact to={data.href}>
-                        <li className="texticon">
-                          <div className="icon">
-                            <span className="material-icons md-20">{data.icon}</span>
-                          </div>
-                          <div className="text">
-                            <span className="text1">{data.text}</span>
-                            <span className="text2"></span>
-                          </div>
-                        </li>
-                      </NavLink>
-                    ))}
-                  </div>
-                </NavDropdown>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+                      </li>
+                    </NavLink>
+                  ))}
+                </div>
+              </NavDropdown>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
 

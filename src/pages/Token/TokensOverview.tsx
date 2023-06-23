@@ -28,24 +28,54 @@ export default function TokensOverview() {
   return (
     <PageWrapper>
       <AutoColumn gap="lg">
-        <TYPE.main>Your Watchlist</TYPE.main>
-        {savedTokens.length > 0 ? (
-          <TokenTable tokenDatas={watchListTokens} />
-        ) : (
-          <DarkGreyCard>
-            <TYPE.main>Saved tokens will appear here</TYPE.main>
-          </DarkGreyCard>
-        )}
-        <HideSmall>
-          <DarkGreyCard style={{ paddingTop: '12px' }}>
-            <AutoColumn gap="md">
-              <TYPE.mediumHeader fontSize="16px">Top Movers</TYPE.mediumHeader>
-              <TopTokenMovers />
-            </AutoColumn>
-          </DarkGreyCard>
-        </HideSmall>
-        <TYPE.main>All Tokens</TYPE.main>
-        <TokenTable tokenDatas={formattedTokens} />
+        <h1
+          style={{
+            lineHeight: '80px',
+            fontSize: 40,
+            color: 'white',
+            margin: 0,
+            padding: 0,
+            textAlign: 'center',
+          }}
+        >
+          Tokens
+        </h1>
+        <div
+          style={{
+            borderRadius: 15,
+            backgroundColor: 'rgba(32, 34, 50, 0.5)',
+            padding: 15,
+          }}
+        >
+          <TYPE.main style={{ marginBottom: 10 }}>Your Watchlist</TYPE.main>
+          <div style={{ marginBottom: 10 }}>
+            {savedTokens.length > 0 ? (
+              <TokenTable tokenDatas={watchListTokens} />
+            ) : (
+              <DarkGreyCard>
+                <TYPE.main>Saved tokens will appear here</TYPE.main>
+              </DarkGreyCard>
+            )}
+          </div>
+          <HideSmall>
+            <DarkGreyCard style={{ paddingTop: '12px' }}>
+              <AutoColumn gap="md">
+                <TYPE.mediumHeader fontSize="16px">Top Movers</TYPE.mediumHeader>
+                <TopTokenMovers />
+              </AutoColumn>
+            </DarkGreyCard>
+          </HideSmall>
+        </div>
+        <div
+          style={{
+            borderRadius: 15,
+            backgroundColor: 'rgba(32, 34, 50, 0.5)',
+            padding: 15,
+          }}
+        >
+          <TYPE.main style={{ marginBottom: 10 }}>All Tokens</TYPE.main>
+          <TokenTable tokenDatas={formattedTokens} />
+        </div>
       </AutoColumn>
     </PageWrapper>
   )
