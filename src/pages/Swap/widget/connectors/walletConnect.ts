@@ -21,7 +21,7 @@ const connector = initializeConnector<WalletConnect>(
     new WalletConnect(
       actions,
       {
-        rpc: { 1: JSON_RPC_URL },
+        //rpc: { 1: JSON_RPC_URL },
       },
       false
     )

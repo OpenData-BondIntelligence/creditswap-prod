@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Web3Provider } from '@ethersproject/providers'
 import { getPriorityConnector } from '@web3-react/core'
 import { Connector } from '@web3-react/types'

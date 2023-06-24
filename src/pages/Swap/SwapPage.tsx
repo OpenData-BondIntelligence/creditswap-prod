@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { PageWrapper } from 'pages/styled'
 import { TYPE } from 'theme'
-import Widget from './src/components/App'
+import Widget from './widget/components/App'
 
 export default function SwapPage() {
   useEffect(() => {
