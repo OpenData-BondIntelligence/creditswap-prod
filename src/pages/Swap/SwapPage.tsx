@@ -23,15 +23,15 @@ export default function SwapPage() {
         Credit Swap
       </h1>
       <TYPE.main style={{ marginBottom: 10, textAlign: 'center' }}>Swap your Tokens Here</TYPE.main>
-      <Widget />
-      {/*<iframe
+      {/*<Widget />*/}
+      <iframe
         src="https://uniswap-widgets-demo.vercel.app/"
         width="100%"
         height="700px"
         scrolling="no"
         frameBorder="0"
         allow="gyroscope"
-      ></iframe>*/}
+      ></iframe>
     </PageWrapper>
   )
 }

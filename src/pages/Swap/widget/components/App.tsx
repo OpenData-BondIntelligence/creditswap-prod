@@ -1,6 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
 // @ts-nocheck
 import { useCallback, useRef, useState } from 'react'
+import { JSON_RPC_URL } from '../constants'
+import DocumentationCards from './DocumentationCards'
 import { SupportedLocale, SwapWidget, darkTheme, Theme } from '@uniswap/widgets'
 
 // ↓↓↓ Don't forget to import the widgets' fonts! ↓↓↓
@@ -8,8 +10,6 @@ import '@uniswap/widgets/fonts.css'
 // ↑↑↑
 
 import { useActiveProvider } from '../connectors'
-import { JSON_RPC_URL } from '../constants'
-import DocumentationCards from './DocumentationCards'
 import Web3Connectors from './Web3Connectors'
 import styles from '../styles/Home.module.css'
 import React from 'react'
