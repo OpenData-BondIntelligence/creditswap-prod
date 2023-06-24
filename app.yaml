@@ -1,4 +1,4 @@
-runtime: nodejs12
+runtime: nodejs
 
 instance_class: B1
 service: bi-model-development
