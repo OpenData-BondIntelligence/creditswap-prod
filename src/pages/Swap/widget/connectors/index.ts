@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 // @ts-nocheck
 import type { Web3Provider } from '@ethersproject/providers'
 import { getPriorityConnector } from '@web3-react/core'

@@ -13,6 +13,8 @@ import { useActiveProvider } from '../connectors'
 import Web3Connectors from './Web3Connectors'
 import styles from '../styles/Home.module.css'
 import React from 'react'
+import store from '../../../../state'
+import { Provider } from 'react-redux'
 
 const TOKEN_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 
@@ -62,21 +64,25 @@ export default function App() {
 
         <div className={styles.demo}>
           <div className={styles.connectors} ref={connectors} tabIndex={-1}>
-            <Web3Connectors />
+            <Provider store={store}>
+              <Web3Connectors />
+            </Provider>
           </div>
 
           <div className={styles.widget}>
-            <SwapWidget
-              jsonRpcEndpoint={JSON_RPC_URL}
-              tokenList={TOKEN_LIST}
-              provider={provider}
-              locale={locale}
-              onConnectWallet={focusConnectors}
-              defaultInputTokenAddress="NATIVE"
-              defaultInputAmount="1"
-              // defaultOutputTokenAddress={UNI}
-              theme={myDarkTheme}
-            />
+            <Provider store={store}>
+              <SwapWidget
+                jsonRpcEndpoint={JSON_RPC_URL}
+                tokenList={TOKEN_LIST}
+                provider={provider}
+                locale={locale}
+                onConnectWallet={focusConnectors}
+                defaultInputTokenAddress="NATIVE"
+                defaultInputAmount="1"
+                // defaultOutputTokenAddress={UNI}
+                theme={myDarkTheme}
+              />
+            </Provider>
           </div>
         </div>
 

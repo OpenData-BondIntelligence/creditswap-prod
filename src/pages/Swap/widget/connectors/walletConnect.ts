@@ -16,13 +16,13 @@ export function isWalletConnect(connector: Connector) {
   return connector instanceof WalletConnect
 }
 
-const connector = initializeConnector<WalletConnect>(
+const connector = initializeConnector<any>(
   (actions) =>
-    new WalletConnect(
-      actions,
-      {
+    new WalletConnect({
+      actions: actions,
+      options: {
         rpc: { 1: JSON_RPC_URL },
       },
-    )
+    })
 )
 export default toWeb3Connector(connector)
