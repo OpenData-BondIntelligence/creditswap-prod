@@ -29,9 +29,9 @@ jobs:
 
       - name: Build project
         run: |
-          npm install
-          npm ci
-          npm run build
+          yarn install
+          yarn ci
+          yarn run build
 
       - name: Deploy to App Engine
         id: deploy
