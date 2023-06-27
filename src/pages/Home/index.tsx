@@ -139,7 +139,7 @@ export default function Home() {
             style={{
               lineHeight: '80px',
               fontSize: 40,
-              color: 'red',
+              color: 'white',
               margin: 0,
               padding: 0,
               textAlign: 'center',
