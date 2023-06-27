@@ -1,1 +1,0 @@
-(self.webpackChunk_uniswap_interface=self.webpackChunk_uniswap_interface||[]).push([[684],{12769:function(){},52361:function(){},94616:function(){}}]);
