@@ -30,7 +30,6 @@ jobs:
       - name: Build project
         run: |
           yarn install
-          yarn ci
           yarn run build
 
       - name: Deploy to App Engine
