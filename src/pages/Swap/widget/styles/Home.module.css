@@ -64,8 +64,6 @@
   /* background-color: #f7f8fa; */
   background: linear-gradient(45deg, #ac50ef, #7059fb 50%, #2ecff6);
   border-radius: 16px;
-  height: 358px;
-  width: 362px;
   /*border-color: #ccd0d5;*/
   /* border-color: linear-gradient(45deg, #ac50ef, #7059fb 50%, #2ecff6); */
   padding: 1px;
@@ -74,7 +72,7 @@
 .rule {
   border: 1px solid #c3c5cb;
   margin: 0;
-  width: calc(100% - 2rem);
+  width: 90vw;
   /*column-rule-color: #7059fb;*/
   max-width: 664px;
   /* border: 0;

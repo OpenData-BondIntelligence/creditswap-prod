@@ -4,10 +4,16 @@
 import styles from '../styles/Cards.module.css'
 import { BsInfoCircle } from 'react-icons/bs'
 import { FaMoneyCheckAlt } from 'react-icons/fa'
+import Web3Connectors from './Web3Connectors'
+import styles2 from '../styles/Home.module.css'
 
-export default function DocumentationCards() {
+export default function DocumentationCards({ connectors }) {
   return (
     <div className={styles.grid}>
+      <div className={styles2.connectors} ref={connectors} tabIndex={-1}>
+        <Web3Connectors />
+      </div>
+
       <a target="_blank" className={styles.card} rel="noreferrer">
         <div className={styles.row}>
           <BsInfoCircle className={styles.logo} />↗

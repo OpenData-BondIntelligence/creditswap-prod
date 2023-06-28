@@ -63,12 +63,6 @@ export default function App() {
         {/* <h1 className={styles.title}>Swap Widget</h1> */}
 
         <div className={styles.demo}>
-          <div className={styles.connectors} ref={connectors} tabIndex={-1}>
-            <Provider store={store}>
-              <Web3Connectors />
-            </Provider>
-          </div>
-
           <div className={styles.widget}>
             <Provider store={store}>
               <SwapWidget
@@ -88,7 +82,7 @@ export default function App() {
 
         <hr className={styles.rule} />
 
-        <DocumentationCards />
+        <DocumentationCards connectors={connectors} />
       </main>
     </div>
   )

@@ -28,7 +28,7 @@ export default function PoolPage() {
 
   return (
     <PageWrapper>
-      <AutoColumn gap="lg">
+      <AutoColumn gap="16px">
         <h1
           style={{
             lineHeight: '80px',
