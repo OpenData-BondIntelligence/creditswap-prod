@@ -7,6 +7,7 @@ import { useAllPoolData, usePoolDatas } from 'state/pools/hooks'
 import { notEmpty } from 'utils'
 import { useSavedPools } from 'state/user/hooks'
 import { DarkGreyCard } from 'components/Card'
+import Bar from '../Bar'
 // import TopPoolMovers from 'components/pools/TopPoolMovers'
 
 export default function PoolPage() {
@@ -40,39 +41,47 @@ export default function PoolPage() {
         >
           Pools
         </h1>
-        <div
-          style={{
-            borderRadius: 15,
-            backgroundColor: 'rgba(32, 34, 50, 0.5)',
-            padding: 15,
-          }}
-        >
-          <TYPE.main style={{ marginBottom: 10 }}>Your Watchlist</TYPE.main>
-          {watchlistPools.length > 0 ? (
-            <PoolTable poolDatas={watchlistPools} />
-          ) : (
-            <DarkGreyCard>
-              <TYPE.main>Saved pools will appear here</TYPE.main>
+        <Bar></Bar>
+        <div style={{
+          width: "90%",
+          margin: "auto"}}
+        >  
+          <div
+            style={{
+              borderRadius: 15,
+              backgroundColor: 'rgba(32, 34, 50, 0.5)',
+              padding: 15,
+              marginTop: 25,
+            }}
+          >
+            <TYPE.main style={{ marginBottom: 10 }}>Your Watchlist</TYPE.main>
+            {watchlistPools.length > 0 ? (
+              <PoolTable poolDatas={watchlistPools} />
+            ) : (
+              <DarkGreyCard>
+                <TYPE.main>Saved pools will appear here</TYPE.main>
+              </DarkGreyCard>
+            )}
+          </div>
+          {/* <HideSmall>
+            <DarkGreyCard style={{ paddingTop: '12px' }}>
+              <AutoColumn gap="md">
+                <TYPE.mediumHeader fontSize="16px">Trending by 24H Volume</TYPE.mediumHeader>
+                <TopPoolMovers />
+              </AutoColumn>
             </DarkGreyCard>
-          )}
-        </div>
-        {/* <HideSmall>
-          <DarkGreyCard style={{ paddingTop: '12px' }}>
-            <AutoColumn gap="md">
-              <TYPE.mediumHeader fontSize="16px">Trending by 24H Volume</TYPE.mediumHeader>
-              <TopPoolMovers />
-            </AutoColumn>
-          </DarkGreyCard>
-        </HideSmall> */}
-        <div
-          style={{
-            borderRadius: 15,
-            backgroundColor: 'rgba(32, 34, 50, 0.5)',
-            padding: 15,
-          }}
-        >
-          <TYPE.main style={{ marginBottom: 10 }}>All Pools</TYPE.main>
-          <PoolTable poolDatas={poolDatas} />
+          </HideSmall> */}
+          <br />
+          <div
+            style={{
+              borderRadius: 15,
+              backgroundColor: 'rgba(32, 34, 50, 0.5)',
+              padding: 15,
+            }}
+          >
+            <TYPE.main style={{ marginBottom: 10 }}>All Pools</TYPE.main>
+            <PoolTable poolDatas={poolDatas} />
+          </div>
         </div>
       </AutoColumn>
     </PageWrapper>

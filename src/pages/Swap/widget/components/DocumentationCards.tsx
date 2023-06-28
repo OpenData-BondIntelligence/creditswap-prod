@@ -8,16 +8,15 @@ import { FaMoneyCheckAlt } from 'react-icons/fa'
 export default function DocumentationCards() {
   return (
     <div className={styles.grid}>
-      <a href="https://openexa.ai/" target="_blank" className={styles.card} rel="noreferrer">
+      <a target="_blank" className={styles.card} rel="noreferrer">
         <div className={styles.row}>
           <BsInfoCircle className={styles.logo} />↗
         </div>
-        <h3>RWA Market Intelligence</h3>
-        <p>Real World Assets (RWA) - Market Research and Cryptocurrency Exploration.</p>
+        <h3>EDX Exchange</h3>
+        <p>Coming Soon</p>
       </a>
 
       <a
-        href="https://token-interface-next-app-wmn5n7rc5q-uc.a.run.app/transactions"
         target="_blank"
         className={styles.card}
         rel="noreferrer"
@@ -25,8 +24,8 @@ export default function DocumentationCards() {
         <div className={styles.row}>
           <FaMoneyCheckAlt className={styles.logo} />↗
         </div>
-        <h3>Token Management</h3>
-        <p>Minting of AUT's and OXA's and Management of Tokens.</p>
+        <h3>NFT Marketplace</h3>
+        <p>Coming Soon</p>
       </a>
 
       {/* <a href="https://docs.uniswap.org/sdk/widgets/swap-widget" className={styles.card}>

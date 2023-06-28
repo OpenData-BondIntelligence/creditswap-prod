@@ -27,7 +27,7 @@ import { VolumeWindow } from 'types'
 import Network from '../../components/Header'
 import { Text, StyleSheet } from 'react-native'
 import SearchSmall from 'components/Search'
-import Bar from './Bar'
+import Bar from '../Bar'
 
 import NetworkDropdown from 'components/Menu/NetworkDropdown'
 
@@ -134,21 +134,22 @@ export default function Home() {
     <PageWrapper style={{ width: '100%' }}>
       <ThemedBackgroundGlobal backgroundColor={activeNetwork.bgColor} />
       <AutoColumn gap="16px">
-        <div style={{ width: '90%', margin: 'auto' }}>
-          <h1
-            style={{
-              lineHeight: '80px',
-              fontSize: 40,
-              color: 'white',
-              margin: 0,
-              padding: 0,
-              textAlign: 'center',
-            }}
-          >
-            Overview
-          </h1>
+        <h1
+          style={{
+            lineHeight: '80px',
+            fontSize: 40,
+            color: 'white',
+            margin: 0,
+            padding: 0,
+            textAlign: 'center',
+          }}
+        >
+          Overview
+        </h1>
+        <Bar></Bar>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ width: '90%', margin: 'auto' }}>
+          <div style={{ marginTop: 20, marginBottom: 35, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <DarkGreyCard
               width={window.innerWidth > 900 ? 'fit-content' : '100%'}
               style={{ marginLeft: 'auto', marginRight: 'auto', maxWidth: '90vw' }}
@@ -175,13 +176,7 @@ export default function Home() {
               </div>
             </DarkGreyCard>
           </div>
-        </div>
 
-        <div style={{ paddingTop: 25, paddingBottom: 25 }}>
-          <Bar></Bar>
-        </div>
-
-        <div style={{ width: '90%', margin: 'auto' }}>
           <div
             style={{
               borderRadius: 15,
@@ -269,6 +264,7 @@ export default function Home() {
                 />
               </ChartWrapper>
             </ResponsiveRow>
+          
             <HideSmall>
               <DarkGreyCard>
                 <RowBetween>
@@ -296,7 +292,7 @@ export default function Home() {
               </DarkGreyCard>
             </HideSmall>
           </div>
-
+          <br />
           <div
             style={{
               borderRadius: 15,
@@ -312,7 +308,7 @@ export default function Home() {
             </RowBetween>
             <TokenTable tokenDatas={formattedTokens} />
           </div>
-
+          <br />
           <div
             style={{
               borderRadius: 15,
@@ -328,7 +324,7 @@ export default function Home() {
             </RowBetween>
             <PoolTable poolDatas={poolDatas} />
           </div>
-
+          <br />
           <div
             style={{
               borderRadius: 15,

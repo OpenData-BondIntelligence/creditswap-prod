@@ -26,6 +26,15 @@
 .connector label {
   flex-grow: 1;
   font-weight: 500;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.connector button {
+  background-color: #1E222D;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .connector .status {
