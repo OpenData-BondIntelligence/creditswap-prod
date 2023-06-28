@@ -6,12 +6,16 @@ import { BsInfoCircle } from 'react-icons/bs'
 import { FaMoneyCheckAlt } from 'react-icons/fa'
 import Web3Connectors from './Web3Connectors'
 import styles2 from '../styles/Home.module.css'
+import store from '../../../../state'
+import { Provider } from 'react-redux'
 
 export default function DocumentationCards({ connectors }) {
   return (
     <div className={styles.grid}>
       <div className={styles2.connectors} ref={connectors} tabIndex={-1}>
-        <Web3Connectors />
+        <Provider store={store}>
+          <Web3Connectors />
+        </Provider>
       </div>
 
       <a target="_blank" className={styles.card} rel="noreferrer">
@@ -19,7 +23,7 @@ export default function DocumentationCards({ connectors }) {
           <BsInfoCircle className={styles.logo} />↗
         </div>
         <h3>EDX Exchange</h3>
-        <p>Coming Soon</p>
+        <p style={{ fontSize: 20 }}>Coming Soon</p>
       </a>
 
       <a
@@ -31,7 +35,7 @@ export default function DocumentationCards({ connectors }) {
           <FaMoneyCheckAlt className={styles.logo} />↗
         </div>
         <h3>NFT Marketplace</h3>
-        <p>Coming Soon</p>
+        <p style={{ fontSize: 20 }}>Coming Soon</p>
       </a>
 
       {/* <a href="https://docs.uniswap.org/sdk/widgets/swap-widget" className={styles.card}>

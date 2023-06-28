@@ -1,7 +1,7 @@
 import 'inter-ui'
 import React, { StrictMode } from 'react'
 import { isMobile } from 'react-device-detect'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client';
 import ReactGA from 'react-ga'
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
@@ -53,7 +53,9 @@ function Updaters() {
   )
 }
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(
   <StrictMode>
     <FixedGlobalStyle />
     <ApolloProvider client={client}>
@@ -67,6 +69,5 @@ ReactDOM.render(
         </ThemeProvider>
       </Provider>
     </ApolloProvider>
-  </StrictMode>,
-  document.getElementById('root')
-)
+  </StrictMode>
+);
