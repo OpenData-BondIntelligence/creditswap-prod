@@ -19,6 +19,7 @@ import { DarkGreyCard } from 'components/Card'
 import { SUPPORTED_NETWORK_VERSIONS, EthereumNetworkInfo, OptimismNetworkInfo } from 'constants/networks'
 import SwapPage from './Swap/SwapPage'
 import background from './background.jpg'
+import ChatButton from "../components/Chat/ChatButton.js";
 
 const AppWrapper = styled.div`
   background: url(${background});
@@ -167,6 +168,14 @@ export default function App() {
                 <Route exact path="/:networkID?" component={Home} />
               </Switch>
               <Marginer />
+              <main
+              className="relative h-screen overflow-auto bg-gray-100 dark:bg-gray-800"
+            >
+              <div className="flex items-start justify-between">
+                {/* <Sidebar /> */}
+                <ChatButton />
+              </div>
+            </main>
             </BodyWrapper>
           )}
         </AppWrapper>

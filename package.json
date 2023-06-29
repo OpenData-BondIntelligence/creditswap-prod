@@ -167,6 +167,7 @@
     "react-icons": "^4.9.0",
     "react-native": "^0.71.11",
     "react-native-web": "^0.19.4",
+    "react-wrap-balancer": "^1.0.0",
     "recharts": "^2.0.9",
     "redux": "^4.2.1",
     "styled-icons": "^10.47.0",
