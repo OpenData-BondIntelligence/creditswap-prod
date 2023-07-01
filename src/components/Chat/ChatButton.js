@@ -10,7 +10,7 @@ const ChatButton = () => {
   }
 
   return (
-    <div className="fixed bottom-0 right-0 mb-8 mr-8 flex w-1/4 flex-col">
+    <div style={{ zIndex: 100 }} className="fixed bottom-0 right-0 mb-8 mr-8 flex w-1/4 flex-col">
       {open && <Chat />}
       <button
         onClick={toggleModal}

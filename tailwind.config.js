@@ -7,7 +7,6 @@ module.exports = {
 
     // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx}',
-    './src/**/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
@@ -28,7 +27,7 @@ module.exports = {
         },
         gray: {
           700: '#07091B',
-          800: '#1A1C38',
+          800: '#18173d',
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -78,4 +77,4 @@ module.exports = {
     },
   },
   // plugins: [require("tailwindcss-animate")],
-}
+};

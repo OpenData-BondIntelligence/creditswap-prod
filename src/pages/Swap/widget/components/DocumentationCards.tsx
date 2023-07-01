@@ -34,7 +34,7 @@ export default function DocumentationCards({ connectors }) {
         <div className={styles.row}>
           <FaMoneyCheckAlt className={styles.logo} />↗
         </div>
-        <h3>NFT Marketplace</h3>
+        <h3>AUT Marketbase</h3>
         <p style={{ fontSize: 20 }}>Coming Soon</p>
       </a>
 

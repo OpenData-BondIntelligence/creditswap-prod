@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.f2963e69.css",
-    "main.js": "./static/js/main.6e1edef1.js",
+    "main.css": "./static/css/main.851ef30a.css",
+    "main.js": "./static/js/main.dfa9e6b0.js",
     "static/js/684.33a6b793.chunk.js": "./static/js/684.33a6b793.chunk.js",
     "static/js/643.5ffd1a3c.chunk.js": "./static/js/643.5ffd1a3c.chunk.js",
     "static/js/346.6f63b9f4.chunk.js": "./static/js/346.6f63b9f4.chunk.js",
@@ -125,8 +125,8 @@
     "static/media/optimism.svg": "./static/media/optimism.34412af263c903b58c43a243c4a21d56.svg",
     "static/media/celo-logo.svg": "./static/media/celo-logo.faaa57f71af640e8172f7154141206a3.svg",
     "index.html": "./index.html",
-    "main.f2963e69.css.map": "./static/css/main.f2963e69.css.map",
-    "main.6e1edef1.js.map": "./static/js/main.6e1edef1.js.map",
+    "main.851ef30a.css.map": "./static/css/main.851ef30a.css.map",
+    "main.dfa9e6b0.js.map": "./static/js/main.dfa9e6b0.js.map",
     "643.5ffd1a3c.chunk.js.map": "./static/js/643.5ffd1a3c.chunk.js.map",
     "346.6f63b9f4.chunk.js.map": "./static/js/346.6f63b9f4.chunk.js.map",
     "928.a79a5a1f.chunk.js.map": "./static/js/928.a79a5a1f.chunk.js.map",
@@ -167,7 +167,7 @@
     "419.a0e4a83c.chunk.js.map": "./static/js/419.a0e4a83c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f2963e69.css",
-    "static/js/main.6e1edef1.js"
+    "static/css/main.851ef30a.css",
+    "static/js/main.dfa9e6b0.js"
   ]
 }

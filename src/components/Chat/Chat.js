@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {Button} from './Button';
-import { ChatLine } from './ChatLine.js';
+import { Button } from './Button';
+import { ChatLine } from './ChatLine';
 
 
 export default function Chat() {
@@ -9,41 +9,38 @@ export default function Chat() {
   const [isTyping, setIsTyping] = useState(false);
 
   const chat = async (e, message) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    if (!message) return;
-    setIsTyping(true);
+      if (!message) return;
+      setIsTyping(true);
 
-    const msgs = chats;
-    msgs.push({ role: "user", content: message });
-    setChats(msgs);
+      const msgs = chats;
+      msgs.push({ role: "user", content: message });
+      setChats(msgs);
 
-    setMessage("");
+      setMessage("");
 
-    fetch("https://gpt-node-app.vercel.app/chat", {
-      method: "POST",
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        chats,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        msgs.push(data.output);
-        setChats(msgs);
-        setIsTyping(false);
-      })
-      .catch((error) => {
-        console.log(error);
+      const req = await fetch("https://gpt-node-app.onrender.com/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chats,
+        }),
       });
+      const data = await req.json();
+      msgs.push(data.output);
+      setChats(msgs);
+      setIsTyping(false);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
-    <div className="rounded-2xl border-zinc-100 bg-white lg:border lg:p-6">
+    <div style={{ width: "100%" }} className="rounded-2xl border-zinc-100 bg-white lg:border lg:p-6">
       {chats.map(({ content, role }, index) => (
         <ChatLine key={index} role={role} content={content} />
       ))}

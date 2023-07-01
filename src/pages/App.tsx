@@ -169,7 +169,7 @@ export default function App() {
               </Switch>
               <Marginer />
               <main
-              className="relative h-screen overflow-auto bg-gray-100 dark:bg-gray-800"
+              className="relative overflow-auto bg-gray-100 dark:bg-gray-800"
             >
               <div className="flex items-start justify-between">
                 {/* <Sidebar /> */}
