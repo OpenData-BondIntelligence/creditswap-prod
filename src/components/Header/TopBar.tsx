@@ -44,7 +44,7 @@ function HeaderBar() {
           <a className="launchApp-link" href="https://openexa.ai" target="_blank" rel="noreferrer">
             <div className="group-hover:opacity-75 transition duration-200 absolute -inset-0.5 w-11/12 bg-gradient-to-tr from-secondary-200 to-secondary-100 rounded-lg blur opacity-0"></div>
             <button
-              style={{ borderRadius: 10 }}
+              style={{ borderRadius: 500 }}
               className="z-10 hover:brightness-110 transition duration-300 py-2 px-4 w-11/12 text-base bg-gradient-to-tr from-secondary-100 via-secondary-200 to-secondary-300 text-center text-white shadow-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-indigo-200 focus:outline-none"
             >
               <div>RWA Intelligence</div>
@@ -55,7 +55,7 @@ function HeaderBar() {
           <a className="launchApp-link" href="https://openexa.io" target="_blank" rel="noreferrer">
             <div className="group-hover:opacity-75 transition duration-200 absolute -inset-0.5 w-11/12 bg-gradient-to-tr from-secondary-200 to-secondary-100 rounded-lg blur opacity-0"></div>
             <button
-              style={{ borderRadius: 10 }}
+              style={{ borderRadius: 500 }}
               className="z-10 hover:brightness-110 transition duration-300 py-2 px-4 w-11/12 text-base bg-gradient-to-tr from-secondary-100 via-secondary-200 to-secondary-300 text-center text-white shadow-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-indigo-200 focus:outline-none"
             >
               <div>Manage Tokens</div>

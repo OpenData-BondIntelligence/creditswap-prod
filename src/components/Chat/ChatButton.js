@@ -14,7 +14,7 @@ const ChatButton = () => {
       {open && <Chat />}
       <button
         onClick={toggleModal}
-        style={{ padding:16  }}
+        style={{ padding:16, background: "var(--linear-gradient)"  }}
     className="ml-auto mt-4 rounded-full bg-[#6248ff] text-gray-700 transition duration-300 hover:bg-[#ac51ef] dark:bg-primary text-white dark:hover:bg-secondary-100"
       >
         <svg
