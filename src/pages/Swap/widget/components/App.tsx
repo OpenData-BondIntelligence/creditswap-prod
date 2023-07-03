@@ -10,7 +10,6 @@ import '@uniswap/widgets/fonts.css'
 // ↑↑↑
 
 import { useActiveProvider } from '../connectors'
-import Web3Connectors from './Web3Connectors'
 import styles from '../styles/Home.module.css'
 import React from 'react'
 import store from '../../../../state'

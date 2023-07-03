@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { PageWrapper } from 'pages/styled'
-import { TYPE } from 'theme'
 import { AutoColumn } from 'components/Column'
 import Widget from './widget/components/App'
 import Bar from '../Bar'

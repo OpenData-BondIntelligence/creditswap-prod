@@ -24,8 +24,6 @@ import { useActiveNetworkVersion } from 'state/application/hooks'
 import { useTransformedVolumeData } from 'hooks/chart'
 import { SmallOptionButton } from 'components/Button'
 import { VolumeWindow } from 'types'
-import Network from '../../components/Header'
-import { Text, StyleSheet } from 'react-native'
 import SearchSmall from 'components/Search'
 import Bar from '../Bar'
 

@@ -18,6 +18,7 @@ import ListUpdater from './state/lists/updater'
 import ThemeProvider, { FixedGlobalStyle, ThemedGlobalStyle } from './theme'
 import { ApolloProvider } from '@apollo/client/react'
 import { client } from 'apollo/client'
+import WebContextProvider from './utils/WebContextProvider.js';
 
 const GOOGLE_ANALYTICS_ID: string | undefined = process.env.REACT_APP_GOOGLE_ANALYTICS_ID
 if (typeof GOOGLE_ANALYTICS_ID === 'string') {
@@ -59,15 +60,17 @@ root.render(
   <StrictMode>
     <FixedGlobalStyle />
     <ApolloProvider client={client}>
-      <Provider store={store}>
-        <Updaters />
-        <ThemeProvider>
-          <ThemedGlobalStyle />
-          <HashRouter>
-            <App />
-          </HashRouter>
-        </ThemeProvider>
-      </Provider>
+      <WebContextProvider>
+        <Provider store={store}>
+          <Updaters />
+          <ThemeProvider>
+            <ThemedGlobalStyle />
+            <HashRouter>
+              <App />
+            </HashRouter>
+          </ThemeProvider>
+        </Provider>
+      </WebContextProvider>
     </ApolloProvider>
   </StrictMode>
 );

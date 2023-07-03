@@ -17,7 +17,7 @@ import { fetchTokenPriceData } from 'data/tokens/priceData'
 import { fetchTokenTransactions } from 'data/tokens/transactions'
 import { PriceChartEntry, Transaction } from 'types'
 import { notEmpty } from 'utils'
-import dayjs, { OpUnitType } from 'dayjs'
+import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import { useActiveNetworkVersion, useClients } from 'state/application/hooks'
 // format dayjs with the libraries that we need

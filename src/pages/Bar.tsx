@@ -25,7 +25,7 @@ function Bar() {
   return (
     <div className="flex">
       <div
-        className="flex"
+        className="flex items-center justify-center"
         style={{
           background: 'linear-gradient(45deg, #ac50ef, #7059fb 50%, #2ecff6)',
           lineHeight: 19,
