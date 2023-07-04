@@ -22,6 +22,8 @@ export default function App() {
   const connectors = useRef<HTMLDivElement>(null)
   const focusConnectors = useCallback(() => connectors.current?.focus(), [])
 
+  console.log(focusConnectors);
+
   // The provider to pass to the SwapWidget.
   // This is a Web3Provider (from @ethersproject) supplied by @web3-react; see ./connectors.ts.
   const provider = useActiveProvider()
@@ -63,19 +65,17 @@ export default function App() {
 
         <div className={styles.demo}>
           <div className={styles.widget}>
-            <Provider store={store}>
-              <SwapWidget
-                jsonRpcEndpoint={JSON_RPC_URL}
-                tokenList={TOKEN_LIST}
-                provider={provider}
-                locale={locale}
-                onConnectWallet={focusConnectors}
-                defaultInputTokenAddress="NATIVE"
-                defaultInputAmount="1"
-                // defaultOutputTokenAddress={UNI}
-                theme={myDarkTheme}
-              />
-            </Provider>
+            <SwapWidget
+              jsonRpcEndpoint={JSON_RPC_URL}
+              tokenList={TOKEN_LIST}
+              provider={provider}
+              locale={locale}
+              onConnectWallet={focusConnectors}
+              defaultInputTokenAddress="NATIVE"
+              defaultInputAmount="1"
+              // defaultOutputTokenAddress={UNI}
+              theme={myDarkTheme}
+            />
           </div>
         </div>
 

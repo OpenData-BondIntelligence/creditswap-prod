@@ -46,7 +46,7 @@ export default function Chat() {
   };
 
   return (
-    <div style={{ width: "100%" }} className="rounded-2xl bg-[#1e222c] lg:p-6">
+    <div style={{ width: "100%", border: "2px solid white" }} className="rounded-2xl bg-[#1e222c] lg:p-6">
       {chats.map(({ content, role }, index) => {
         return (<div key={index}>{index != 0 ? <ChatLine role={role} content={content} /> : <></>}</div>);
       })}
