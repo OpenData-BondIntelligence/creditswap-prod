@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from 'react'
 import { JSON_RPC_URL } from '../constants'
 import DocumentationCards from './DocumentationCards'
-import { SupportedLocale, SwapWidget, darkTheme, Theme } from '@uniswap/widgets'
+import { SwapWidget, darkTheme, Theme } from '@uniswap/widgets'
 
 // ↓↓↓ Don't forget to import the widgets' fonts! ↓↓↓
 import '@uniswap/widgets/fonts.css'
@@ -27,10 +27,6 @@ export default function App() {
   // The provider to pass to the SwapWidget.
   // This is a Web3Provider (from @ethersproject) supplied by @web3-react; see ./connectors.ts.
   const provider = useActiveProvider()
-
-  // The locale to pass to the SwapWidget.
-  // This is a value from the SUPPORTED_LOCALES exported by @uniswap/widgets.
-  const [locale, setLocale] = useState<SupportedLocale>('en-US')
 
   const myDarkTheme: Theme = {
     ...darkTheme, // Extend the darkTheme
@@ -69,7 +65,6 @@ export default function App() {
               jsonRpcEndpoint={JSON_RPC_URL}
               tokenList={TOKEN_LIST}
               provider={provider}
-              locale={locale}
               onConnectWallet={focusConnectors}
               defaultInputTokenAddress="NATIVE"
               defaultInputAmount="1"

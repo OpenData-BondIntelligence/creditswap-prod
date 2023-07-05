@@ -62,7 +62,6 @@ export default function PoolPage() {
                 <TYPE.main>Saved pools will appear here</TYPE.main>
               </DarkGreyCard>
             )}
-          </div>
           {/* <HideSmall>
             <DarkGreyCard style={{ paddingTop: '12px' }}>
               <AutoColumn gap="md">
@@ -72,13 +71,6 @@ export default function PoolPage() {
             </DarkGreyCard>
           </HideSmall> */}
           <br />
-          <div
-            style={{
-              borderRadius: 15,
-              backgroundColor: 'rgba(32, 34, 50, 0.5)',
-              padding: 15,
-            }}
-          >
             <TYPE.main style={{ marginBottom: 10 }}>All Pools</TYPE.main>
             <PoolTable poolDatas={poolDatas} />
           </div>

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.165077da.css",
-    "main.js": "./static/js/main.058a4807.js",
+    "main.js": "./static/js/main.4980eb75.js",
     "static/js/684.33a6b793.chunk.js": "./static/js/684.33a6b793.chunk.js",
     "static/js/643.c924af74.chunk.js": "./static/js/643.c924af74.chunk.js",
     "static/js/346.6f63b9f4.chunk.js": "./static/js/346.6f63b9f4.chunk.js",
@@ -126,7 +126,7 @@
     "static/media/celo-logo.svg": "./static/media/celo-logo.faaa57f71af640e8172f7154141206a3.svg",
     "index.html": "./index.html",
     "main.165077da.css.map": "./static/css/main.165077da.css.map",
-    "main.058a4807.js.map": "./static/js/main.058a4807.js.map",
+    "main.4980eb75.js.map": "./static/js/main.4980eb75.js.map",
     "643.c924af74.chunk.js.map": "./static/js/643.c924af74.chunk.js.map",
     "346.6f63b9f4.chunk.js.map": "./static/js/346.6f63b9f4.chunk.js.map",
     "928.835eac66.chunk.js.map": "./static/js/928.835eac66.chunk.js.map",
@@ -168,6 +168,6 @@
   },
   "entrypoints": [
     "static/css/main.165077da.css",
-    "static/js/main.058a4807.js"
+    "static/js/main.4980eb75.js"
   ]
 }

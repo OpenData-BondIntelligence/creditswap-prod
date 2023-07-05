@@ -72,15 +72,7 @@ export default function TokensOverview() {
                 </AutoColumn>
               </DarkGreyCard>
             </HideSmall>
-          </div>
           <br />
-          <div
-            style={{
-              borderRadius: 15,
-              backgroundColor: 'rgba(32, 34, 50, 0.5)',
-              padding: 15,
-            }}
-          >
             <TYPE.main style={{ marginBottom: 10 }}>All Tokens</TYPE.main>
             <TokenTable tokenDatas={formattedTokens} />
           </div>

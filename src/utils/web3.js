@@ -31,7 +31,7 @@ const useConnectWalletHandler = () => {
         setOZTCoin(OZTCoin ?? "");
         setSelectedAccount(selectedAccount ?? "");
         setOwner(resOwner ?? "");
-        setUserBalance(web3.utils.fromWei(resBalance, "ether") ?? "");
+        setUserBalance(resBalance);
 
         window.ethereum.on('accountsChanged', function (accounts) {
           setSelectedAccount(accounts[0]);
@@ -69,7 +69,7 @@ const useConnectWalletHandler = () => {
         setOZTCoin(OZTCoin);
         setSelectedAccount(selectedAccount);
         setOwner(resOwner);
-        setUserBalance(web3.utils.fromWei(resBalance, "ether"));
+        setUserBalance(resBalance);
 
         window.ethereum.on('accountsChanged', function (accounts) {
           setSelectedAccount(null);

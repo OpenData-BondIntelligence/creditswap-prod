@@ -289,15 +289,8 @@ export default function Home() {
                 </RowBetween>
               </DarkGreyCard>
             </HideSmall>
-          </div>
-          <br />
-          <div
-            style={{
-              borderRadius: 15,
-              backgroundColor: 'rgba(32, 34, 50, 0.5)',
-              padding: 15,
-            }}
-          >
+          
+            <br />
             <RowBetween style={{ marginBottom: 10 }}>
               <TYPE.main>Top Tokens</TYPE.main>
               <StyledInternalLink to="tokens" style={{ color: 'gray' }}>
@@ -305,15 +298,7 @@ export default function Home() {
               </StyledInternalLink>
             </RowBetween>
             <TokenTable tokenDatas={formattedTokens} />
-          </div>
-          <br />
-          <div
-            style={{
-              borderRadius: 15,
-              backgroundColor: 'rgba(32, 34, 50, 0.5)',
-              padding: 15,
-            }}
-          >
+            <br />
             <RowBetween style={{ marginBottom: 10 }}>
               <TYPE.main>Top Pools</TYPE.main>
               <StyledInternalLink to="pools" style={{ color: 'gray' }}>
@@ -321,15 +306,7 @@ export default function Home() {
               </StyledInternalLink>
             </RowBetween>
             <PoolTable poolDatas={poolDatas} />
-          </div>
-          <br />
-          <div
-            style={{
-              borderRadius: 15,
-              backgroundColor: 'rgba(32, 34, 50, 0.5)',
-              padding: 15,
-            }}
-          >
+            <br />
             <RowBetween style={{ marginBottom: 10 }}>
               <TYPE.main>Transactions</TYPE.main>
             </RowBetween>
