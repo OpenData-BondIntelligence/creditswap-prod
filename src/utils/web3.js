@@ -1,4 +1,4 @@
-import Web3 from 'web3';
+/*import Web3 from 'web3';
 import { OZTCoinABI, contractAddress } from './constants.js';
 import { useContext } from 'react';
 import { AppContext } from './WebContextProvider';
@@ -25,13 +25,13 @@ const useConnectWalletHandler = () => {
         web3 = new Web3(provider);
         OZTCoin = new web3.eth.Contract(OZTCoinABI, contractAddress);
         const resOwner = await OZTCoin.methods.owner().call();
-        const resBalance = await OZTCoin.methods.balanceOf(selectedAccount).call();
+        //const resBalance = await OZTCoin.methods.balanceOf(selectedAccount).call();
 
         setWeb3(web3 ?? "");
         setOZTCoin(OZTCoin ?? "");
         setSelectedAccount(selectedAccount ?? "");
         setOwner(resOwner ?? "");
-        setUserBalance(resBalance);
+        setUserBalance(web3.utils.fromWei(resBalance, "ether") ?? "");
 
         window.ethereum.on('accountsChanged', function (accounts) {
           setSelectedAccount(accounts[0]);
@@ -53,7 +53,7 @@ const useConnectWalletHandler = () => {
 
     if (typeof provider !== 'undefined') {
       try {
-        const accounts = await provider.request({
+        /*const accounts = await provider.request({
           method: 'eth_requestAccounts',
         });
         selectedAccount = accounts[0];
@@ -63,13 +63,13 @@ const useConnectWalletHandler = () => {
         web3 = new Web3(provider);
         OZTCoin = new web3.eth.Contract(OZTCoinABI, contractAddress);
         const resOwner = await OZTCoin.methods.owner().call();
-        const resBalance = await OZTCoin.methods.balanceOf(selectedAccount).call();
+        //const resBalance = await OZTCoin.methods.balanceOf(selectedAccount).call();
 
         setWeb3(web3);
         setOZTCoin(OZTCoin);
         setSelectedAccount(selectedAccount);
         setOwner(resOwner);
-        setUserBalance(resBalance);
+        setUserBalance(web3.utils.fromWei(resBalance, "ether"));
 
         window.ethereum.on('accountsChanged', function (accounts) {
           setSelectedAccount(null);
@@ -86,4 +86,4 @@ const useConnectWalletHandler = () => {
   return [connectWalletHandler, disconnectWalletHandler];
 };
 
-export { useConnectWalletHandler };
+export { useConnectWalletHandler };*/

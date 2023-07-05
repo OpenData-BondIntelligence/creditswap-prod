@@ -15,15 +15,15 @@ const ConnectWalletButton = () => {
 
   useEffect(() => {
     if (localStorage.getItem('buttonHasBeenClicked') === 'true') {
-      connectWalletHandler();
+      //connectWalletHandler();
     }
   }, []);
 
   function changeStatus() {
     if (localStorage.getItem('buttonHasBeenClicked') === 'false') {
-      connectWalletHandler();
+      //connectWalletHandler();
     } else {
-      disconnectWalletHandler();
+      //disconnectWalletHandler();
     }
   }
 
@@ -94,7 +94,7 @@ function HeaderBar() {
         </div>
       </div>
       <div style={{ display: "flex", marginRight: 5 }} className="items-center justify-end">
-        <ConnectWalletButton />
+        {/*<ConnectWalletButton />*/}
       </div>
     </div>
   );
