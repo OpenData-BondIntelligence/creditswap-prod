@@ -10,7 +10,7 @@ export default function SwapPage() {
 
   return (
     <PageWrapper>
-      <h1
+      {/* <h1
         style={{
           lineHeight: '80px',
           fontSize: 40,
@@ -24,16 +24,16 @@ export default function SwapPage() {
       </h1>
       <TYPE.main style={{ marginBottom: 10, textAlign: 'center' }}>Swap your Tokens Here</TYPE.main>
 
-      <Widget />
+      <Widget /> */}
 
-      {/*<iframe
-        src="https://uniswap-widgets-demo.vercel.app/"
+      <iframe
+        src="https://uniswap-widgets-demo-iota.vercel.app"
         width="100%"
-        height="700px"
+        height="800px"
         scrolling="no"
         frameBorder="0"
         allow="gyroscope"
-      ></iframe>*/}
+      ></iframe>
     </PageWrapper>
   )
 }
