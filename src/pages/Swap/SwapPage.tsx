@@ -2,8 +2,10 @@ import React, { useEffect } from 'react'
 import { PageWrapper } from 'pages/styled'
 import { TYPE } from 'theme'
 import Widget from './widget/components/App'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 export default function SwapPage() {
+  disableBodyScroll(document)
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -33,7 +35,7 @@ export default function SwapPage() {
         scrolling="no"
         frameBorder="0"
         allow="gyroscope"
-      ></iframe>
+      />
     </PageWrapper>
   )
 }
