@@ -77,7 +77,7 @@ function HeaderBar() {
               style={{ borderRadius: 500 }}
               className="z-10 hover:brightness-110 transition duration-300 py-2 px-4 w-11/12 text-base bg-gradient-to-tr from-secondary-100 via-secondary-200 to-secondary-300 text-center text-white shadow-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-indigo-200 focus:outline-none"
             >
-              <div>RWA Intelligence</div>
+              <div>OpenEXA Intelligence</div>
             </button>
           </a>
         </div>
@@ -88,7 +88,7 @@ function HeaderBar() {
               style={{ borderRadius: 500 }}
               className="z-10 hover:brightness-110 transition duration-300 py-2 px-4 w-11/12 text-base bg-gradient-to-tr from-secondary-100 via-secondary-200 to-secondary-300 text-center text-white shadow-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-indigo-200 focus:outline-none"
             >
-              <div>Manage Tokens</div>
+              <div>OpenEXA Tokens</div>
             </button>
           </a>
         </div>
