@@ -2,11 +2,9 @@ import React, { useEffect } from 'react'
 import { PageWrapper } from 'pages/styled'
 import { TYPE } from 'theme'
 import Widget from './widget/components/App'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Bar from '../Bar'
 
 export default function SwapPage() {
-  // disableBodyScroll(document)
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -25,7 +23,7 @@ export default function SwapPage() {
       >
         Credit Swap
       </h1>
-      <div style={{marginTop: 16}}>
+      <div>
         <Bar />
       </div>
       {/* 
@@ -33,13 +31,21 @@ export default function SwapPage() {
 
       <Widget /> */}
 
-      <iframe
+      {/* <iframe
         src="https://chloe-testappv2-wmn5n7rc5q-uc.a.run.app"
         width="100%"
-        height="800px"
+        height="700px"
         scrolling="no"
         frameBorder="0"
         allow="gyroscope"
+      /> */}
+      <iframe
+        src="https://uniswap-widgets-demo-iota.vercel.app/"
+        width="100%"
+        height="100%"
+        scrolling="no"
+        allow="gyroscope"
+        style={{ display: 'block', border: 0, overflow: 'hidden' }}
       />
     </PageWrapper>
   )

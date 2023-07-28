@@ -1,23 +1,23 @@
 import Logo from '../../assets/images/logotitle.png'
-import { useEffect, useContext } from 'react';
-import { AppContext } from '../../utils/WebContextProvider';
-import { clsx } from 'clsx';
-import { useConnectWalletHandler } from '../../utils/web3.js';
-import React from 'react';
+import { useEffect, useContext } from 'react'
+import { AppContext } from '../../utils/WebContextProvider'
+import { clsx } from 'clsx'
+import { useConnectWalletHandler } from '../../utils/web3.js'
+import React from 'react'
 
 function refreshHome() {
   window.location.reload()
 }
 
 const ConnectWalletButton = () => {
-  const { walletConnected } = useContext(AppContext);
-  const [connectWalletHandler, disconnectWalletHandler] = useConnectWalletHandler();
+  const { walletConnected } = useContext(AppContext)
+  const [connectWalletHandler, disconnectWalletHandler] = useConnectWalletHandler()
 
   useEffect(() => {
     if (localStorage.getItem('buttonHasBeenClicked') === 'true') {
       //connectWalletHandler();
     }
-  }, []);
+  }, [])
 
   function changeStatus() {
     if (localStorage.getItem('buttonHasBeenClicked') === 'false') {
@@ -55,12 +55,15 @@ const ConnectWalletButton = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
 function HeaderBar() {
   return (
-    <div className="grid grid-cols-3 gap-x-3" style={{ backgroundColor: "#202232", gridTemplateColumns: "19% 60% 19%" }}>
+    <div
+      className="grid grid-cols-3 gap-x-3"
+      style={{ backgroundColor: '#202232', gridTemplateColumns: '19% 60% 19%' }}
+    >
       <div className="menu_logo">
         <div className="hamburgerMenu"></div>
         <div className="newnew" onClick={refreshHome}>
@@ -77,7 +80,7 @@ function HeaderBar() {
               style={{ borderRadius: 500 }}
               className="z-10 hover:brightness-110 transition duration-300 py-2 px-4 w-11/12 text-base bg-gradient-to-tr from-secondary-100 via-secondary-200 to-secondary-300 text-center text-white shadow-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-indigo-200 focus:outline-none"
             >
-              <div>OpenEXA Intelligence</div>
+              <div style={{}}>RWA Intelligence</div>
             </button>
           </a>
         </div>
@@ -88,16 +91,16 @@ function HeaderBar() {
               style={{ borderRadius: 500 }}
               className="z-10 hover:brightness-110 transition duration-300 py-2 px-4 w-11/12 text-base bg-gradient-to-tr from-secondary-100 via-secondary-200 to-secondary-300 text-center text-white shadow-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-indigo-200 focus:outline-none"
             >
-              <div>OpenEXA Tokens</div>
+              <div>Manage Tokens</div>
             </button>
           </a>
         </div>
       </div>
-      <div style={{ display: "flex", marginRight: 5 }} className="items-center justify-end">
+      <div style={{ display: 'flex', marginRight: 5 }} className="items-center justify-end">
         {/*<ConnectWalletButton />*/}
       </div>
     </div>
-  );
+  )
 }
 
-export default HeaderBar;
+export default HeaderBar
