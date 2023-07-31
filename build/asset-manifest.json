@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.5a570846.css",
-    "main.js": "./static/js/main.00576c6d.js",
+    "main.js": "./static/js/main.23548840.js",
     "static/js/563.55a1d257.chunk.js": "./static/js/563.55a1d257.chunk.js",
     "static/js/684.33a6b793.chunk.js": "./static/js/684.33a6b793.chunk.js",
     "static/js/643.e7d51d6f.chunk.js": "./static/js/643.e7d51d6f.chunk.js",
@@ -53,11 +53,11 @@
     "static/media/polygon-logo.png": "./static/media/polygon-logo.1140771b39c8269a6d1b.png",
     "static/media/background.jpg": "./static/media/background.31b0e0bff028652b2951.jpg",
     "static/media/arbitrum.svg": "./static/media/arbitrum.abae01ba680d97dacc23a0fb5caa4863.svg",
-    "static/media/optimism.svg": "./static/media/optimism.c432ee1c46fc98a5c1f21d379c37172e.svg",
+    "static/media/optimism.svg": "./static/media/optimism.34412af263c903b58c43a243c4a21d56.svg",
     "static/media/celo-logo.svg": "./static/media/celo-logo.faaa57f71af640e8172f7154141206a3.svg",
     "index.html": "./index.html",
     "main.5a570846.css.map": "./static/css/main.5a570846.css.map",
-    "main.00576c6d.js.map": "./static/js/main.00576c6d.js.map",
+    "main.23548840.js.map": "./static/js/main.23548840.js.map",
     "643.e7d51d6f.chunk.js.map": "./static/js/643.e7d51d6f.chunk.js.map",
     "346.6f63b9f4.chunk.js.map": "./static/js/346.6f63b9f4.chunk.js.map",
     "390.ec2c3f0a.chunk.js.map": "./static/js/390.ec2c3f0a.chunk.js.map",
@@ -66,6 +66,6 @@
   },
   "entrypoints": [
     "static/css/main.5a570846.css",
-    "static/js/main.00576c6d.js"
+    "static/js/main.23548840.js"
   ]
 }

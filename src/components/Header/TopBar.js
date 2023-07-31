@@ -85,7 +85,7 @@ function HeaderBar() {
           </a>
         </div>
         <div className="relative group">
-          <a className="launchApp-link" href="https://openexa.to" target="_blank" rel="noreferrer">
+          <a className="launchApp-link" href="https://openexa.io" target="_blank" rel="noreferrer">
             <div className="group-hover:opacity-75 transition duration-200 absolute -inset-0.5 w-11/12 bg-gradient-to-tr from-secondary-200 to-secondary-100 rounded-lg blur opacity-0"></div>
             <button
               style={{ borderRadius: 500 }}
