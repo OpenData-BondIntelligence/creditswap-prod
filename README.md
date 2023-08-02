@@ -1,4 +1,4 @@
-## OpenEXA Uniswap V3
+## OpenEXA Uniswap
 
 An open sourced interface for Uniswap V3 analytics.
 
