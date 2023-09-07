@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 export default function Chat() {
   const [message, setMessage] = useState("");
-  const [chats, setChats] = useState([]);
+  const [chats, setChats] = useState([{ role: "assistant", content: "Hi! I am an AI chat bot ready to assist you with any of your concerns. How can I help you today?" }]);
   const [isTyping, setIsTyping] = useState(false);
 
   async function getStart(msgs) {
@@ -22,10 +22,6 @@ export default function Chat() {
     setChats(msgs);
     setIsTyping(false);
   }
-
-  useEffect(() => {
-    getStart([{role: "user", content: "hi"}]);
-  }, []);
 
   const chat = async (e, message) => {
     try {
@@ -46,9 +42,9 @@ export default function Chat() {
   };
 
   return (
-    <div style={{ width: "100%", border: "2px solid white" }} className="rounded-2xl bg-[#1e222c] lg:p-6">
+    <div style={{ width: "100%", border: "2px solid white", maxHeight: 450, overflowY: "scroll" }} className="rounded-2xl bg-[#1e222c] lg:p-6">
       {chats.map(({ content, role }, index) => {
-        return (<div key={index}>{index != 0 ? <ChatLine role={role} content={content} /> : <></>}</div>);
+        return (<div key={index}><ChatLine role={role} content={content} /></div>);
       })}
 
       { isTyping && (
