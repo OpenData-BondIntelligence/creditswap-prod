@@ -34,7 +34,7 @@ export default function SwapPage() {
       <iframe
         src="https://chloe-testappv2-wmn5n7rc5q-uc.a.run.app"
         width="100%"
-        height="700px"
+        height="830px"
         scrolling="no"
         frameBorder="0"
         allow="gyroscope"
